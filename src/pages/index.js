@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { Inter } from 'next/font/google';
 import Header from "@/components/Header"
 import styles from "@/styles/Home.module.css";
 import ApartmentCard from "@/components/ApartmentCard";
@@ -6,6 +7,9 @@ import NavBar from "@/components/NavBar";
 
 var Scroll = require("react-scroll");
 var Element = Scroll.Element;
+
+
+const inter = Inter({ subsets: ['latin'] })
 
 const apartments = [
   {
