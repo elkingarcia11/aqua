@@ -1,0 +1,9 @@
+{
+  "reserve": "Reserve",
+  "apartment": "Apartment",
+  "sleeps": "Sleeps",
+  "bedrooms": "Bedrooms",
+  "bathrooms": "Bathrooms",
+  "location": "Location",
+  "direction": "Direction"
+}

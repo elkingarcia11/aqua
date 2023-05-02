@@ -1,0 +1,83 @@
+.swiper {
+  margin-bottom: 3vh;
+  width: 95vw;
+  height: 100%;
+  border-radius: 7.5px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  background: white;
+}
+
+.swiperSlide img {
+  width: 100%;
+  object-fit: cover;
+}
+
+
+.aptDescription {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2vh;
+  margin-top: 1vh;
+  margin-left: 4vw;
+  margin-right: 4vw;
+}
+
+.details {
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.apt {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.aptSub {
+  font-size: 16px;
+  color: gray;
+  padding-bottom: 2vh;
+}
+
+.detailsOne {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 1vw;
+  line-height: 25px;
+}
+
+.columnTwo {
+  margin-left: 3vw;
+  font-weight: bold;
+}
+
+.reserveButton {
+  background-color: #6ca4c4;
+  border-radius: 3.25px;
+  color: white;
+  font-weight: bold;
+  padding: 10px 10px;
+  font-size: 20px;
+}
+
+.reserveButton:hover {
+    background:#6193b0
+    ; 
+}
+
+@media (min-width: 1024px) {
+  .apt-card {
+    width: 400px;
+  }
+  .apt-description {
+    margin-top: 2vh;
+    margin-left: 1vw;
+    margin-right: 1vw;
+  }
+  #apt {
+    padding-bottom: 1.5vh;
+  }
+}
