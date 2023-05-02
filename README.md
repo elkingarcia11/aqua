@@ -14,7 +14,9 @@ pnpm dev
 npm i swiper
 npm install react-scroll
 npm install react-i18next i18next --save   
-npm i reactjs-popup
+npm i react-device-detect
+npm i react-icons
+npm i react-modal
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

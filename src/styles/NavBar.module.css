@@ -1,10 +1,8 @@
 .navbar {
-  padding: 28px 0;
-  width: 100vw;
-  height: 8vh;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 60px;
-  display: flex;
-  justify-content: center;
+  margin-bottom: 3vh;
 }
 
 .navbar button {
@@ -71,24 +69,33 @@
 /* On smaller screens */
 @media only screen and (max-width: 812px) {
   .navbarMenu li:first-child {
-    visibility: visible;
     border-right: none;
-    padding-left: 0;
     display: flex;
-    justify-content: center;
+    width: 90vw;
+    justify-content: space-between;
   }
   .navbarMenu li {
-    visibility: hidden;
-    width: 100vw;
+    display: none;
+    padding-left: 0;
+    padding-right: 0;
   }
   .navbarMenu button {
-    font-size: larger;
+    display: flex;
+    align-items: center;
+    border: solid lightgray 1px;
+    border-radius: 300px;
+    padding: 15px;
+    font-size: medium;
     font-weight: bold;
     text-align: center;
-    padding: 0;
-    margin: 0;
+    margin-top: 3vh;
   }
-  .navbar{
-    height: 10vh;
+  .ionIcon{
+    font-size:x-large;
+    margin-right: 2vw;
+  }
+  .icon{
+    font-size: medium;
+    margin-right: 2vw;
   }
 }

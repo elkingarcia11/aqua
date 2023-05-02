@@ -75,7 +75,8 @@ export default function Home() {
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
         <Header/>
-        <NavBar/>
+        <div className={`${styles.apartmentList}`}>
+
         {apartments.map((apartment) => (
           <Element key={apartment.id} name={apartment.name}>
             <ApartmentCard
@@ -87,6 +88,7 @@ export default function Home() {
             />
           </Element>
         ))}
+        </div>
       </main>
     </>
   );

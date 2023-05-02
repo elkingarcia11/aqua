@@ -1,7 +1,7 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content:flex-start;
   align-items: center;
   min-height: 100vh; 
   position: relative;
@@ -10,6 +10,10 @@
 
 .aptCard {
   margin: 2vh;
+}
+.apartmentList{
+  margin-top: 60px;
+  margin-bottom: 3vh;
 }
 
 /* Enable hover only on non-touch devices */
