@@ -6,28 +6,19 @@ import "swiper/css";
 import styles from "@/styles/ApartmentCard.module.css";
 
 import { useTranslation } from "react-i18next";
-export default function ApartmentCard({ aptId, sleeps, beds, baths, link }) {
+export default function ApartmentCard({ aptId, sleeps, beds, baths, link, images }) {
   const { t } = useTranslation();
 
   return (
     <>
+      
       <Swiper className={`${styles.swiper}`}>
-        <SwiperSlide className={`${styles.swiperSlide}`}>
-          <img src="/stockphoto.jpg" alt="React logo" />
+        {images.map((image) => (
+        <SwiperSlide key={index} className={`${styles.swiperSlide}`}>
+          <img src={image} alt="Image" />
         </SwiperSlide>
-        <SwiperSlide className={`${styles.swiperSlide}`}>
-          <img src="/stockphoto.jpg" alt="React logo" />
-        </SwiperSlide>
-        <SwiperSlide className={`${styles.swiperSlide}`}>
-          <img src="/stockphoto.jpg" alt="React logo" />
-        </SwiperSlide>
-        <SwiperSlide className={`${styles.swiperSlide}`}>
-          <img src="/stockphoto.jpg" alt="React logo" />
-        </SwiperSlide>
-        <SwiperSlide className={`${styles.swiperSlide}`}>
-          <img src="/stockphoto.jpg" alt="React logo" />
-        </SwiperSlide>
-
+        ))}
+       
         <div className={`${styles.aptDescription}`}>
           <div className={`${styles.details}`}>
             <div className={`${styles.apt}`}>AQUA {aptId}</div>

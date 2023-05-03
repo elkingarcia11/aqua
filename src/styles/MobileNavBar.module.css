@@ -1,0 +1,96 @@
+.navbar {
+  padding: 28px 0;
+  width: 100vw;
+  height: 8vh;
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar button {
+  font-size: 20px;
+  border: lightgray solid 1px;
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+  color: #6ca4c4;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.navbar button:hover {
+  color: #4b7289;
+}
+
+.navbarMenu ul {
+  text-align: right;
+  margin: 0;
+}
+
+.navbarMenu li {
+  display: inline-block;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-right: 1px solid #6ca4c4;
+}
+
+.navbarMenu li:last-child {
+  border-right: none;
+}
+
+.row {
+  width: 90vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.popUpDiv a {
+  color: white;
+  text-decoration: none;
+  -webkit-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+.popUpDiv a:hover {
+  color: #4b7289;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.popUpDiv {
+  width: 250px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 25px;
+  background-color: #6ca4c4;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+/* On smaller screens */
+@media only screen and (max-width: 812px) {
+  .navbarMenu li:first-child {
+    visibility: visible;
+    border-right: none;
+    padding-left: 0;
+    display: flex;
+    justify-content: center;
+  }
+  .navbarMenu li {
+    visibility: hidden;
+    width: 100vw;
+  }
+  .navbarMenu button {
+    border: solid lightgray 1px;
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+  .navbar{
+    height: 10vh;
+  }
+}

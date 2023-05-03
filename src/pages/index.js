@@ -1,5 +1,6 @@
-import Head from "next/head";
 import { Inter } from 'next/font/google';
+import { useEffect } from "react";
+import Head from "next/head";
 import Header from "@/components/Header"
 import styles from "@/styles/Home.module.css";
 import ApartmentCard from "@/components/ApartmentCard";
@@ -10,6 +11,13 @@ var Element = Scroll.Element;
 
 
 const inter = Inter({ subsets: ['latin'] })
+
+const aquaOnePhotos = lazy(() => import("../../public/aqua_1"));
+const aquaTwoPhotos = lazy(() => import("/aqua_2"));
+const aquaThreePhotos = lazy(() => import("/aqua_3"));
+const aquaFourPhotos = lazy(() => import("/aqua_4"));
+const aquaFivePhotos = lazy(() => import("/aqua_5"));
+const aquaSixPhotos = lazy(() => import("/aqua_6"));
 
 const apartments = [
   {
@@ -62,6 +70,7 @@ const apartments = [
   },
 ];
 export default function Home() {
+  const [images, setImages] = useState([]);
   return (
     <>
       <Head>
@@ -85,6 +94,7 @@ export default function Home() {
               beds={apartment.beds}
               baths={apartment.baths}
               link={apartment.link}
+              images={apartment.images}
             />
           </Element>
         ))}
