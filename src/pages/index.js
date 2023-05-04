@@ -72,7 +72,7 @@ export default function Home() {
           content="A Caribbean getaway at our stunning beachfront property. "
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo.ico" />
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
         <Header/>
