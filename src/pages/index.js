@@ -1,5 +1,4 @@
 import { Inter } from 'next/font/google';
-import { useEffect } from "react";
 import Head from "next/head";
 import Header from "@/components/Header"
 import styles from "@/styles/Home.module.css";
@@ -12,65 +11,57 @@ var Element = Scroll.Element;
 
 const inter = Inter({ subsets: ['latin'] })
 
-const aquaOnePhotos = lazy(() => import("../../public/aqua_1"));
-const aquaTwoPhotos = lazy(() => import("/aqua_2"));
-const aquaThreePhotos = lazy(() => import("/aqua_3"));
-const aquaFourPhotos = lazy(() => import("/aqua_4"));
-const aquaFivePhotos = lazy(() => import("/aqua_5"));
-const aquaSixPhotos = lazy(() => import("/aqua_6"));
-
 const apartments = [
   {
     id: 1,
-    name: "aquaOne",
     sleeps: 4,
     beds: 2,
     baths: 2,
     link: "https://abnb.me/DqS6YriYJrb",
+    imageUrl: '../../public/aquaOne'
   },
   {
     id: 2,
-    name: "aquaTwo",
     sleeps: 2,
     beds: 1,
     baths: 1,
     link: "https://abnb.me/g4odQfhYJrb",
+    imageUrl: '../../public/aquaTwo'
   },
   {
     id: 3,
-    name: "aquaThree",
     sleeps: 4,
     beds: 2,
     baths: 1,
     link: "https://abnb.me/ekkqMigYJrb",
+    imageUrl: '../../public/aquaThree'
   },
   {
     id: 4,
-    name: "aquaFour",
     sleeps: 2,
     beds: 1,
     baths: 1,
     link: "https://abnb.me/WOKS9dfYJrb",
+    imageUrl: '../../public/aquaFour'
   },
   {
     id: 5,
-    name: "aquaFive",
     sleeps: 4,
     beds: 2,
     baths: 1,
     link: "https://abnb.me/RHivkudYJrb",
+    imageUrl: '../../public/aquaFive'
   },
   {
     id: 6,
-    name: "aquaSix",
     sleeps: 2,
     beds: 1,
     baths: 1,
     link: "https://abnb.me/DFrJkt4XJrb",
+    imageUrl: '../../public/aquaSix'
   },
 ];
 export default function Home() {
-  const [images, setImages] = useState([]);
   return (
     <>
       <Head>
@@ -87,14 +78,14 @@ export default function Home() {
         <div className={`${styles.apartmentList}`}>
 
         {apartments.map((apartment) => (
-          <Element key={apartment.id} name={apartment.name}>
+          <Element key={apartment.id}>
             <ApartmentCard
               aptId={apartment.id}
               sleeps={apartment.sleeps}
               beds={apartment.beds}
               baths={apartment.baths}
               link={apartment.link}
-              images={apartment.images}
+              imageUrl={apartment.imageUrl}
             />
           </Element>
         ))}
