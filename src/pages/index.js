@@ -4,7 +4,8 @@ import Header from "@/components/Header"
 import styles from "@/styles/Home.module.css";
 import ApartmentCard from "@/components/ApartmentCard";
 import NavBar from "@/components/NavBar";
-
+// import i18n (needs to be bundled ;)) 
+import '../i18n';
 var Scroll = require("react-scroll");
 var Element = Scroll.Element;
 

@@ -6,12 +6,11 @@ import "swiper/css";
 import styles from "@/styles/ApartmentCard.module.css";
 
 export default function ApartmentCard({ aptId, sleeps, beds, baths, link }) {
-  const {t} = useTranslation('locales');
+  const { t } = useTranslation();
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-
     function importAll(r) {
       return r.keys().map(r);
     }
@@ -37,8 +36,7 @@ export default function ApartmentCard({ aptId, sleeps, beds, baths, link }) {
   return (
     <>
       <Swiper className={`${styles.swiper}`}>
-
-      <Spinner isLoading={isLoading} /> 
+        <Spinner isLoading={isLoading} />
         {images.map((image, index) => (
           <SwiperSlide key={index} className={`${styles.swiperSlide}`}>
             <img src={image.src} alt={image.src} />
