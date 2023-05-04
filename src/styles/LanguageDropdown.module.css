@@ -1,0 +1,53 @@
+.languageDropdown {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-self: center;
+  height: 30px;
+  background-color: white;
+}
+
+.languageDropdown select{
+  background-color: white;
+  font-size: 16px;
+  margin-left: 2vw;
+  color: #6193b0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.languageDropdown .globeIcon {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  color: #6193b0
+}
+
+.languageDropdown .currentLanguage {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.languageDropdown .options {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  background-color: white;
+  z-index: 100;
+  display: none;
+}
+
+.languageDropdown .options .option {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.languageDropdown .options .option.selected {
+  background-color: #ccc;
+  color: #fff;
+}

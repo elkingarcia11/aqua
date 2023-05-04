@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
-import  Spinner from "./Spinner";
+import Spinner from "./Spinner";
 import "swiper/css";
 import styles from "@/styles/ApartmentCard.module.css";
 
 export default function ApartmentCard({ aptId, sleeps, beds, baths, link }) {
-  const { t } = useTranslation();
-
+  const {t} = useTranslation('locales');
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+
     function importAll(r) {
       return r.keys().map(r);
     }
@@ -38,7 +38,7 @@ export default function ApartmentCard({ aptId, sleeps, beds, baths, link }) {
     <>
       <Swiper className={`${styles.swiper}`}>
 
-      <Spinner size="100px" color="red" isLoading={isLoading} /> 
+      <Spinner isLoading={isLoading} /> 
         {images.map((image, index) => (
           <SwiperSlide key={index} className={`${styles.swiperSlide}`}>
             <img src={image.src} alt={image.src} />
