@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Spinner from "./Spinner";
-import "swiper/css";
+
+import { IoPeopleOutline } from "react-icons/io5";
+import { FaBed, FaBath } from "react-icons/fa";
 import styles from "@/styles/ApartmentCard.module.css";
+import "swiper/css";
 
 export default function ApartmentCard({ aptId, sleeps, beds, baths, link }) {
   const { t } = useTranslation();
@@ -48,9 +51,9 @@ export default function ApartmentCard({ aptId, sleeps, beds, baths, link }) {
             <div className={`${styles.aptSub}`}>El Pueblito, Puerto Plata</div>
             <div className={`${styles.detailsOne}`}>
               <div>
-                <div>{t("sleeps")}:</div>
-                <div>{t("bedrooms")}:</div>
-                <div>{t("bathrooms")}:</div>
+                <div className={`${styles.iconAndDetails}`}><IoPeopleOutline/> <span>{t("sleeps")}:</span></div>
+                <div className={`${styles.iconAndDetails}`}><FaBed/> <span>{t("bedrooms")}:</span></div>
+                <div className={`${styles.iconAndDetails}`}><FaBath/> <span>{t("bathrooms")}:</span></div>
               </div>
               <div className={`${styles.columnTwo}`}>
                 <div>{sleeps}</div>

@@ -17,10 +17,10 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 3vh;
+  margin-bottom: 20px;
   margin-top: 1vh;
-  margin-left: 2vw;
-  margin-right: 2vw;
+  margin-left: 3vw;
+  margin-right: 10px
 }
 
 .details {
@@ -43,9 +43,18 @@
 .detailsOne {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   padding-right: 1vw;
   line-height: 25px;
+}
+
+.iconAndDetails{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.iconAndDetails span{
+  margin-left: 2vw;
 }
 
 .columnTwo {
