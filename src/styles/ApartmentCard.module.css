@@ -5,7 +5,6 @@
   border-radius: 7.5px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
   background: white;
-
 }
 
 .swiperSlide img {
@@ -13,16 +12,15 @@
   object-fit: cover;
 }
 
-
 .aptDescription {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2vh;
+  align-items: flex-end;
+  margin-bottom: 3vh;
   margin-top: 1vh;
-  margin-left: 4vw;
-  margin-right: 4vw;
+  margin-left: 2vw;
+  margin-right: 2vw;
 }
 
 .details {
@@ -66,8 +64,7 @@
 }
 
 .reserveButton:hover {
-    background:#6193b0
-    ; 
+  background: #6193b0;
 }
 
 @media (min-width: 1024px) {
