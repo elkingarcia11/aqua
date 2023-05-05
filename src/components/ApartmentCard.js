@@ -1,17 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
+import  { Navigation } from "swiper";
 import Spinner from "./Spinner";
 
-import { IoPeopleOutline } from "react-icons/io5";
+import {
+  IoPeopleOutline,
+  IoChevronBackCircle,
+  IoChevronForwardCircle,
+} from "react-icons/io5";
 import { FaBed, FaBath } from "react-icons/fa";
 import styles from "@/styles/ApartmentCard.module.css";
 import "swiper/css";
+import "swiper/css/navigation";
 
 export default function ApartmentCard({ aptId, sleeps, beds, baths, link }) {
   const { t } = useTranslation();
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
 
   useEffect(() => {
     function importAll(r) {
@@ -32,43 +39,60 @@ export default function ApartmentCard({ aptId, sleeps, beds, baths, link }) {
     } else if (aptId === 6) {
       imgs = importAll(require.context("../assets/aquaSix/", false));
     }
-    setImages(imgs.map((imageUrl) => imageUrl.default));
+    let newArray = [];
+    imgs.forEach((imageUrl) => {
+      newArray.push(imageUrl.default);
+    });
+    setImages(newArray);
     setIsLoading(false);
   }, [aptId]);
 
   return (
-    <>
-      <Swiper className={`${styles.swiper}`}>
+    <div className={`${styles.swiperContainer}`}>
+      <Swiper
+        loop
+        navigation
+        modules={[Navigation]}
+        className={`${styles.swiper}`}
+      >
         <Spinner isLoading={isLoading} />
         {images.map((image, index) => (
           <SwiperSlide key={index} className={`${styles.swiperSlide}`}>
             <img src={image.src} alt={image.src} />
           </SwiperSlide>
         ))}
-        <div className={`${styles.aptDescription}`}>
-          <div className={`${styles.details}`}>
+      </Swiper>
+      <div className={`${styles.descriptionContainer}`}>
+        <div className={`${styles.details}`}>
+          <div >
             <div className={`${styles.apt}`}>AQUA {aptId}</div>
             <div className={`${styles.aptSub}`}>El Pueblito, Puerto Plata</div>
-            <div className={`${styles.detailsOne}`}>
-              <div>
-                <div className={`${styles.iconAndDetails}`}><IoPeopleOutline/> <span>{t("sleeps")}:</span></div>
-                <div className={`${styles.iconAndDetails}`}><FaBed/> <span>{t("bedrooms")}:</span></div>
-                <div className={`${styles.iconAndDetails}`}><FaBath/> <span>{t("bathrooms")}:</span></div>
+          </div>
+          <div className={`${styles.detailsOne}`}>
+            <div>
+              <div className={`${styles.iconAndDetails}`}>
+                <IoPeopleOutline /> <span>{t("sleeps")}:</span>
               </div>
-              <div className={`${styles.columnTwo}`}>
-                <div>{sleeps}</div>
-                <div>{beds}</div>
-                <div>{baths}</div>
+              <div className={`${styles.iconAndDetails}`}>
+                <FaBed /> <span>{t("bedrooms")}:</span>
+              </div>
+              <div className={`${styles.iconAndDetails}`}>
+                <FaBath /> <span>{t("bathrooms")}:</span>
               </div>
             </div>
-          </div>
-          <div className={`${styles.reserve}`}>
-            <a href={link} className={`${styles.reserveButton}`}>
-              {t("reserve")}
-            </a>
+            <div className={`${styles.columnTwo}`}>
+              <div>{sleeps}</div>
+              <div>{beds}</div>
+              <div>{baths}</div>
+            </div>
           </div>
         </div>
-      </Swiper>
-    </>
+        <div className={`${styles.reserve}`}>
+          <a href={link} className={`${styles.reserveButton}`}>
+            {t("reserve")}
+          </a>
+        </div>
+      </div>
+    </div>
   );
 }

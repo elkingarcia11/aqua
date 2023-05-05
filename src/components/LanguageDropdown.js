@@ -31,7 +31,7 @@ const languages = [
 ]
 
 export default function LanguageDropdown() {
-  const [t, i18n] = useTranslation('locales');
+  const [t, i18n] = useTranslation();
   const [currentLanguage, setCurrentLanguage] = useState('en');
 
   const handleChangeLanguage = (e) => {
