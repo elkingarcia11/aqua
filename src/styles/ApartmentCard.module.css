@@ -67,6 +67,7 @@
     flex-direction: row;
     justify-content: flex-start;
     margin-top: 3vh;
+    width: 60vw;
   } 
   .swiper {
     width: 50%;
