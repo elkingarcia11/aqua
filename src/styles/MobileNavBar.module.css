@@ -94,3 +94,105 @@
     height: 10vh;
   }
 }
+
+.navbar {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  margin-bottom: 3vh;
+}
+
+.navbar button {
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+  color: #6ca4c4;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.navbar button:hover {
+  color: #4b7289;
+}
+
+.navbarMenu ul {
+  text-align: right;
+  margin: 0;
+}
+
+.navbarMenu li {
+  display: inline-block;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-right: 1px solid #6ca4c4;
+}
+
+.navbarMenu li:last-child {
+  border-right: none;
+}
+
+.row {
+  width: 90vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.popUpDiv a {
+  color: white;
+  text-decoration: none;
+  -webkit-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+.popUpDiv a:hover {
+  color: #4b7289;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.popUpDiv {
+  width: 250px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 25px;
+  background-color: #6ca4c4;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+/* On smaller screens */
+@media only screen and (max-width: 812px) {
+  .navbarMenu li:first-child {
+    border-right: none;
+    display: flex;
+    width: 90vw;
+    justify-content: space-between;
+  }
+  .navbarMenu li {
+    display: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .navbarMenu button {
+    display: flex;
+    align-items: center;
+    border: solid lightgray 1px;
+    border-radius: 300px;
+    padding: 15px;
+    font-size: medium;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 3vh;
+  }
+  .ionIcon{
+    font-size:x-large;
+    margin-right: 2vw;
+  }
+  .icon{
+    font-size: medium;
+    margin-right: 2vw;
+  }
+}

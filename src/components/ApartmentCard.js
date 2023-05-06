@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
 import  { Navigation } from "swiper";
+import { FaBed, FaBath } from "react-icons/fa";
+
 import Spinner from "./Spinner";
 
 import {
@@ -9,7 +11,6 @@ import {
   IoChevronBackCircle,
   IoChevronForwardCircle,
 } from "react-icons/io5";
-import { FaBed, FaBath } from "react-icons/fa";
 import styles from "@/styles/ApartmentCard.module.css";
 import "swiper/css";
 import "swiper/css/navigation";

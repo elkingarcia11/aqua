@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaGlobeAmericas } from "react-icons/fa";
+
 import styles from "@/styles/LanguageDropdown.module.css";
 
 const languages = [
