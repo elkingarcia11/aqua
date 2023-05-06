@@ -44,7 +44,7 @@ export default function LanguageDropdown() {
     <div>
       <div className={`${styles.languageDropdown}`}>
 
-        <FaGlobeAmericas className={`${styles.globeIcon}`} />
+      <FaGlobeAmericas className={`${styles.globeIcon}`} />
         <select onChange={handleChangeLanguage}>
           {languages.map((language) => (
             <option key={language.language} value={language.language}>{t(`${language.label}`)}</option>
