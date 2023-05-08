@@ -6,6 +6,30 @@
   width: 100vw;
 }
 
+.modalHeader{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  border-bottom: solid 1px lightgray;
+  display: flex;
+  align-items: center;
+}
+.modalHeader span{
+  font-weight: bold;
+  font-size: 18px;
+}
+.modalBody{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.exitButton{
+  margin-left: 10px;
+  margin-right: 15px;
+  transform: rotate(45deg);
+  font-size: larger;
+  background-color: white;
+  border: none;
+}
 .button{
   margin-top: 3vh;
   display: flex;
@@ -21,13 +45,24 @@
   cursor: pointer;
 }
 
+.doneButton{
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #365262;
+  color: white;
+  border-radius: 50px;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
 .icon{
   margin-right: 5px;
 }
 
 .filterModal{
-  padding-left: 15px;
-  padding-right: 15px;
+  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,8 +70,9 @@
   color: black;
   position: absolute;
   width: 90vw;
-  top: 100px;
-  right: 28px;
+  top: 65px;
+  right: 50%;
+  transform: translate(50%, 0%);
   z-index: 1000;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   border-radius: 7.5px;
@@ -46,16 +82,34 @@
   font-weight: bold;
   font-size: 22px;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
-
+.detailRow input {
+  margin-right: 10px;
+}
+.checkboxRow{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 40px;
+  font-size: 18px;
+}
+.checkboxRow input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+}
 .detailRow{
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   margin-bottom: 20px;
+}
+
+.checkboxRow span{
+  margin-right: 30px;
 }
 
 .detailButtonContainer{
@@ -63,7 +117,8 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  width: 40%;
+  margin-left: 20px;
+  width: 150px;
 }
 .detailsButtons{
   display: flex;
@@ -74,10 +129,18 @@
   background-color: #fff;
   color: #333;
   cursor: pointer;
+
 }
 .detailsButtons span{
   font-size: 20px;
 }
 .detailsTitle{
-  font-size: 2opx;
+  font-size: 18px;
+  width: 150px;
+}
+
+@media (min-width: 1024px) {
+  .filterModal{
+    width: 30%;
+  }
 }
