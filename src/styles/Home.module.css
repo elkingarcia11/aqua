@@ -43,3 +43,14 @@
     transform: rotate(0deg);
   }
 }
+
+
+@media (min-width: 1024px) {
+  .iframe{
+    margin-top: 3vh;
+    border-radius: 7.5px;
+    border: none;
+    width: 60vw;
+    height: 450px;
+  }
+}

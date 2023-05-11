@@ -19,6 +19,10 @@
   background: #6193b0;
 }
 
+.reserveButton:active {
+  background: #6193b0;
+}
+
 .reserveButton {
   background-color: #365262;
   border-radius: 3.25px;
