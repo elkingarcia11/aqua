@@ -64,25 +64,10 @@ export default function NavBar({ filterApartments }) {
     setIsInputCheckbox(!isInputCheckbox);
   };
 
-  const handleScroll = () => {
-    if (isFilterModalOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  };
-
   const submitForm = () => {
     toggleModal();
     filterApartments(isInputCheckbox, isSleeps, isBedrooms, isBathrooms);
   };
-
-  useEffect(() => {
-    document.addEventListener("scroll", handleScroll);
-    return () => {
-      document.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   return (
     <div>
