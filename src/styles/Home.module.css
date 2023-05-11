@@ -15,6 +15,19 @@
   margin-bottom: 3vh;
 }
 
+.iframe{
+  width: 95vw;
+  height: 225px;
+  margin-top: 3vh;
+  border-radius: 7.5px;
+  border: none;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+}
+.iframeContainer{
+  display: flex;
+  justify-content: center;
+}
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
 }
@@ -47,9 +60,6 @@
 
 @media (min-width: 1024px) {
   .iframe{
-    margin-top: 3vh;
-    border-radius: 7.5px;
-    border: none;
     width: 60vw;
     height: 450px;
   }

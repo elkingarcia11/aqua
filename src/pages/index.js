@@ -121,7 +121,7 @@ export default function Home() {
             />
           </Element>
         ))}
-        <Element name="map">
+        <Element name="map"  className={`${styles.iframeContainer}`}>
         <iframe
           className={`${styles.iframe}`}
           loading="lazy"
