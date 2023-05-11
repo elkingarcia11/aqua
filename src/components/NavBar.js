@@ -27,6 +27,15 @@ export default function NavBar({ filterApartments }) {
     });
   }
 
+  const reset = () => {
+    setIsInputCheckbox(false)
+    setIsSleeps(0)
+    setIsBathrooms(0)
+    setIsBedrooms(0)
+    setIsFilterModalOpen(false)
+    filterApartments(false, 0, 0, 0);
+  }
+
   const subtract = (i) => {
     if (i === 1 && isSleeps > 0) {
       setIsSleeps(isSleeps - 1);
@@ -96,6 +105,7 @@ export default function NavBar({ filterApartments }) {
         toggleCheckbox={toggleCheckbox}
         submitForm={submitForm}
         toggleModal={toggleModal}
+        reset={reset}
       />
     </div>
   );

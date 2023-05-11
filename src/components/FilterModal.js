@@ -13,6 +13,7 @@ export default function FilterModal({
   toggleModal,
   submitForm,
   toggleCheckbox,
+  reset
 }) {
   const submit = () => {
     toggleModal();
@@ -100,7 +101,7 @@ export default function FilterModal({
             </div>
           </div>
           <div className={`${styles.buttonRow}`}>
-            <button className={`${styles.doneButton}`} onClick={submit}>
+            <button className={`${styles.doneButton}`} onClick={reset}>
             {t("reset")}
             </button>
             <button className={`${styles.doneButton}`} onClick={submit}>
