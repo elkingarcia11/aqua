@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
-import  { Navigation } from "swiper";
+import { Navigation } from "swiper";
 import { FaBed, FaBath } from "react-icons/fa";
 
 import Spinner from "./Spinner";
 
-import {
-  IoPeopleOutline,
-  IoChevronBackCircle,
-  IoChevronForwardCircle,
-} from "react-icons/io5";
+import { IoPeopleOutline } from "react-icons/io5";
 import styles from "@/styles/ApartmentCard.module.css";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -19,7 +15,6 @@ export default function ApartmentCard({ aptId, sleeps, beds, baths, link }) {
   const { t } = useTranslation();
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
 
   useEffect(() => {
     function importAll(r) {
@@ -65,7 +60,7 @@ export default function ApartmentCard({ aptId, sleeps, beds, baths, link }) {
       </Swiper>
       <div className={`${styles.descriptionContainer}`}>
         <div className={`${styles.details}`}>
-          <div >
+          <div>
             <div className={`${styles.apt}`}>AQUA {aptId}</div>
             <div className={`${styles.aptSub}`}>El Pueblito, Puerto Plata</div>
           </div>

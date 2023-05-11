@@ -6,5 +6,10 @@
     "bathrooms": "Bagni",
     "location": "Posizione",
     "direction": "Direzione",
-    "map":"Mappa"
+    "map":"Mappa",
+    "filter": "Filtro",
+    "filterBy":"Filtrare per",
+    "oceanview":"Vista mare",
+    "reset":"Resettare",
+    "done":"Fatto"
 }

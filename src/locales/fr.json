@@ -6,5 +6,10 @@
   "bathrooms": "Salles de bains",
   "location": "Emplacement",
   "direction": "Direction",
-  "map":"Carte"
+  "map":"Carte",
+  "filter": "Filtre",
+  "filterBy":"Filtrer par",
+  "oceanview":"Vue sur l'océan",
+  "reset":"Réinitialiser",
+  "done":"Terminé"
 }

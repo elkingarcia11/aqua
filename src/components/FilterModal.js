@@ -1,11 +1,24 @@
 import { FaPlus, FaMinus } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
+
 import styles from "@/styles/NavBar.module.css";
-export default function FilterModal({ submitForm, toggleCheckbox, isFilterModalOpen, isInputCheckbox, isSleeps, isBedrooms, isBathrooms, subtract, add, toggleModal}) {
+export default function FilterModal({
+  isFilterModalOpen,
+  isInputCheckbox,
+  isSleeps,
+  isBedrooms,
+  isBathrooms,
+  subtract,
+  add,
+  toggleModal,
+  submitForm,
+  toggleCheckbox,
+}) {
   const submit = () => {
-    toggleModal()
-    submitForm()
-  }
-  
+    toggleModal();
+    submitForm();
+  };
+  const { t } = useTranslation();
   if (isFilterModalOpen) {
     return (
       <div className={`${styles.filterModal}`}>
@@ -13,21 +26,25 @@ export default function FilterModal({ submitForm, toggleCheckbox, isFilterModalO
           <button className={`${styles.exitButton}`} onClick={toggleModal}>
             <FaPlus />
           </button>
-          <span>Filter</span>
+          <span>{t("filter")}</span>
         </div>
         <div className={`${styles.modalBody}`}>
-          <div className={`${styles.modalTitle}`}>Filter by</div>
+          <div className={`${styles.modalTitle}`}>{t("filter")} {t("by")}</div>
 
           <div className={`${styles.checkboxRow}`}>
-
-          <input type="checkbox" name="checkbox" onChange={toggleCheckbox} checked={isInputCheckbox} />
+            <input
+              type="checkbox"
+              name="checkbox"
+              onChange={toggleCheckbox}
+              checked={isInputCheckbox}
+            />
             <label>
-              <span>Ocean view</span>
+              <span>{t("oceanview")}</span>
             </label>
           </div>
 
           <div className={`${styles.detailRow}`}>
-            <div className={`${styles.detailsTitle}`}>Sleeps</div>
+            <div className={`${styles.detailsTitle}`}>{t("sleeps")}</div>
             <div className={`${styles.detailButtonContainer}`}>
               <button
                 className={`${styles.detailsButtons}`}
@@ -46,7 +63,7 @@ export default function FilterModal({ submitForm, toggleCheckbox, isFilterModalO
           </div>
 
           <div className={`${styles.detailRow}`}>
-            <div className={`${styles.detailsTitle}`}>Bedrooms</div>
+            <div className={`${styles.detailsTitle}`}>{t("bedrooms")}</div>
             <div className={`${styles.detailButtonContainer}`}>
               <button
                 className={`${styles.detailsButtons}`}
@@ -65,7 +82,7 @@ export default function FilterModal({ submitForm, toggleCheckbox, isFilterModalO
           </div>
 
           <div className={`${styles.detailRow}`}>
-            <div className={`${styles.detailsTitle}`}>Bathrooms</div>
+            <div className={`${styles.detailsTitle}`}>{t("bathrooms")}</div>
             <div className={`${styles.detailButtonContainer}`}>
               <button
                 className={`${styles.detailsButtons}`}
@@ -82,15 +99,14 @@ export default function FilterModal({ submitForm, toggleCheckbox, isFilterModalO
               </button>
             </div>
           </div>
-        <div className={`${styles.buttonRow}`}>
-        <button className={`${styles.doneButton}`} onClick={submit}>
-            Reset
-          </button>
-          <button className={`${styles.doneButton}`} onClick={submit}>
-            Done
-          </button>
-        </div>
-          
+          <div className={`${styles.buttonRow}`}>
+            <button className={`${styles.doneButton}`} onClick={submit}>
+            {t("reset")}
+            </button>
+            <button className={`${styles.doneButton}`} onClick={submit}>
+            {t("done")}
+            </button>
+          </div>
         </div>
       </div>
     );

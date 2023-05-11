@@ -5,5 +5,11 @@
   "bedrooms": "Schlafzimmer",
   "bathrooms": "Badezimmer",
   "location": "Plaats",
-  "direction": "Richting"
+  "direction": "Richting",
+  "map": "Kaart",
+  "filter": "Filter",
+  "filterBy":"Filteren op",
+  "oceanview":"Uitzicht op de oceaan",
+  "reset":"Resetten",
+  "done":"Klaar"
 }

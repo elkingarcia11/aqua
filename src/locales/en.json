@@ -5,5 +5,11 @@
   "bedrooms": "Bedrooms",
   "bathrooms": "Bathrooms",
   "location": "Location",
-  "direction": "Direction"
+  "direction": "Direction",
+  "map": "Map",
+  "filter": "Filter",
+  "filterBy":"Filter by",
+  "oceanview":"Ocean view",
+  "reset":"Reset",
+  "done":"Done"
 }
