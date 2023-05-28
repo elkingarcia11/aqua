@@ -60,7 +60,7 @@ export default function ApartmentCard({ aptId, sleeps, beds, baths, link }) {
       >
         {images.map((image, index) => (
           <SwiperSlide key={index} className={`${styles.swiperSlide}`}>
-            <LazyLoadImage src={image.src} alt={image.src} loading="lazy"/>
+            <LazyLoadImage src={image.src} alt={image.src} loading="lazy" className={`${styles.swiperSlideImg}`}/>
           </SwiperSlide>
         ))}
       </Swiper>

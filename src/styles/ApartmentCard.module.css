@@ -7,13 +7,10 @@
 .swiper {
   border-radius: 7.5px;
   background: white;
+  color: white;
 }
 
-.swiper-pagination-total{
-  background-color: red;
-  color:red;
-}
-.swiperSlide img  {
+.swiperSlideImg  {
   width: 100%;
   object-fit: cover;
 }
@@ -82,7 +79,7 @@
   .swiper {
     width: 50%;
   }
-  .swiperSlide img {
+  .swiperSlideImg {
     height: 100%;
   }
   .descriptionContainer {
