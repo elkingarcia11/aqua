@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
+import { Pagination, Navigation } from 'swiper';
 import { FaBed, FaBath } from "react-icons/fa";
 
-import Spinner from "./Spinner";
 
 import { IoPeopleOutline } from "react-icons/io5";
 import styles from "@/styles/ApartmentCard.module.css";
 import "swiper/css";
+import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 export default function ApartmentCard({ aptId, sleeps, beds, baths, link }) {
   const { t } = useTranslation();
   const [images, setImages] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
   useEffect(() => {
     function importAll(r) {
       return r.keys().map(r);
@@ -40,21 +40,27 @@ export default function ApartmentCard({ aptId, sleeps, beds, baths, link }) {
       newArray.push(imageUrl.default);
     });
     setImages(newArray);
-    setIsLoading(false);
   }, [aptId]);
 
   return (
     <div className={`${styles.swiperContainer}`}>
       <Swiper
+        cssMode={true}
         loop
+        style={{
+          '--swiper-navigation-color': '#fff',
+        }}
         navigation
-        modules={[Navigation]}
+        lazy={true}
+        pagination={{
+          type: "fraction",
+        }}
+        modules={[Navigation, Pagination]}
         className={`${styles.swiper}`}
       >
-        <Spinner isLoading={isLoading} />
         {images.map((image, index) => (
           <SwiperSlide key={index} className={`${styles.swiperSlide}`}>
-            <img src={image.src} alt={image.src} />
+            <LazyLoadImage src={image.src} alt={image.src} loading="lazy"/>
           </SwiperSlide>
         ))}
       </Swiper>

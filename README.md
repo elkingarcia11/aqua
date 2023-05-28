@@ -16,6 +16,7 @@ npm install react-scroll
 npm install react-i18next i18next --save   
 npm i react-icons
 npm i sharp
+npm i --save react-lazy-load-image-component
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
