@@ -1,4 +1,4 @@
-# AQUA Puerto Plata (React, Next.js & JavaScript)
+# AQUA Puerto Plata
 
 A mobile and desktop-friendly web application that serves as a landing page for a collection of Airbnb properties.
 
