@@ -38,7 +38,7 @@ To use the project:
 1. Run the development server: `npm run dev` or `yarn dev`
 2. Open your browser and go to http://localhost:3000 to see the result.
 
-## Deployment to Google Cloud Platform
+### Deployment to Google Cloud Platform
 For deploying your Next.js project on Google Cloud Platform, follow these steps:
 
 1. Install Docker on your machine.
