@@ -32,7 +32,7 @@ Before running the project, ensure you have the following prerequisites:
 
 - [ ] npm/yarn installed
 - [ ] npm/yarn dependencies installed
-- [ ] Google Maps API Key (Set up in `.env` file)
+- [ ] `.env` file created & configured 
 
 ## Usage
 
