@@ -5,7 +5,7 @@ AQUA Puerto Plata is a mobile and desktop-friendly web application that serves a
 
 ## Table of Contents
 1. [Installation](#installation)
-2. [Prerequisites](#prerequisites)d
+2. [Prerequisites](#prerequisites)
 3. [Configuration](#configuration)
 4. [Usage](#usage)
 5. [Deployment](#deployment)
@@ -57,22 +57,6 @@ For deploying your Next.js project on Google Cloud Platform, follow these steps:
 
 ## Production Link
 Visit the official page: [AQUA Puerto Plata](https://aquapuertoplata.com/)
-
-## Screenshots
-
-### Mobile
-<div style="display: flex; justify-content: space-between;">
-  <img src="./readme_images/m1.PNG" alt="Landing Page" width="30%">
-  <img src="./readme_images/m2.PNG" alt="Filter Menu" width="30%">
-  <img src="./readme_images/m3.PNG" alt="Map" width="30%">
-</div>
-
-### Web
-<div style="display: flex; justify-content: space-between;">
-  <img src="./readme_images/d1.png" alt="Landing Page" width="30%">
-  <img src="./readme_images/d2.png" alt="Filter Menu" width="30%">
-  <img src="./readme_images/d3.png" alt="Map" width="30%">
-</div>
 
 ## Contact Information
 For questions or feedback, feel free to reach out to us at elkingarcia.11@gmail.com.
