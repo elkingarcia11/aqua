@@ -1,6 +1,6 @@
 # AQUA Puerto Plata (Web)
 
-This is a mobile and desktop-friendly web application that serves as a landing page for a collection of Airbnb properties.
+AQUA Puerto Plata is a user-friendly web application designed for both mobile and desktop devices. It serves as a landing page for a collection of Airbnb properties.
 
 ## Table of Contents
 
@@ -18,21 +18,27 @@ This is a mobile and desktop-friendly web application that serves as a landing p
 To set up and install the project, follow these steps:
 
 - [GitHub CLI](https://github.com/git-guides/install-git)
-- Clone the repository: `git clone [repository_url]`
+- Clone the repository: `git clone https://github.com/elkingarcia11/aqua_v2.git`
 - [npm](https://docs.npmjs.com/) or [yarn](https://classic.yarnpkg.com/en/docs/install/)
 - Install dependencies using npm or yarn: `npm install` or `yarn install`
 
+- Install the [GitHub CLI](https://github.com/git-guides/install-git)
+- Clone the repository: `git clone https://github.com/elkingarcia11/aqua_v2.git`
+- Install [npm](https://docs.npmjs.com/) or [yarn](https://classic.yarnpkg.com/en/docs/install/)
+- Install project dependencies using npm or yarn: `npm install` or `yarn install`
+
 ## Configuration
 
-Configure the environment variables for the project by creating a `.env` file and adding your Google Maps API Key.
+Configure the project's environment variables by creating a `.env` file and adding your Google Maps API Key.
+
 
 ## Prerequisites
 
-Before running the project, make sure you have the following prerequisites:
+Before running the project, ensure you have the following prerequisites:
 
 - [ ] npm/yarn installed
-- [ ] npm/yarn dependencies installed
-- [ ] `.env` file created & configured 
+- [ ] Project dependencies installed using npm/yarn
+- [ ] `.env` file created and configured
 
 ## Usage
 
@@ -51,26 +57,24 @@ To deploy this Next.js project on Google Cloud Platform, follow these steps:
 2. Build the Docker image of the application.
 3. Tag the image with the name of the Artifact Registry or Container Registry project.
 4. Push the project image to the Artifact Registry or Container Registry.
-5. Deploy an instance of the image using Cloud Run, listening on port 80.
-6. Verify the deployment on your website.
-
+5. Deploy an instance of the image using Cloud Run, configured to listen on port 80.
+6. Verify the deployment by accessing your website.
+   
 ## Features
 
-- Slideshow of images for each apartment-
-- Internationalization to cater to a multitude of foreign clients
-- Filtering based on the desired number of people, views, bathrooms, and bedrooms
-- Reservation link for each apartment
-- Directions and location information in case Airbnb information is faulty or difficult to understand
-
+- Engaging slideshow of images for each apartment
+- Multilingual support catering to diverse international clients
+- Smart filtering based on desired guest capacity, views, bathrooms, and bedrooms
+- Direct reservation links for each apartment
+- Clear directions and location information to address Airbnb-related uncertainties
 
 ### Production Link
 
-Visit [AQUA Puerto Plata](https://aquapuertoplata.com/) to interact with the project.
-
+Explore the [AQUA Puerto Plata](https://aquapuertoplata.com/) project.
 
 ## Contact Information
 
-For questions, feedback, or inquiries, feel free to contact me via email at elkingarcia.11@gmail.com or connect with me on [LinkedIn](https://www.linkedin.com/in/elkingarcia11/)
+For questions, feedback, or inquiries, please don't hesitate to contact me via email at elkingarcia.11@gmail.com or connect with me on [LinkedIn](https://www.linkedin.com/in/elkingarcia11/).
 
 ## Acknowledgments
 
