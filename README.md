@@ -1,6 +1,6 @@
-# AQUA Puerto Plata
+# AQUA Puerto Plata (Web)
 
-A mobile and desktop-friendly web application that serves as a landing page for a collection of Airbnb properties.
+This is a mobile and desktop-friendly web application that serves as a landing page for a collection of Airbnb properties.
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@ A mobile and desktop-friendly web application that serves as a landing page for 
 
 ## Installation
 
-To set up and install the project, install the following:
+To set up and install the project, follow these steps:
 
 - [GitHub CLI](https://github.com/git-guides/install-git)
 - Clone the repository: `git clone [repository_url]`
@@ -24,11 +24,11 @@ To set up and install the project, install the following:
 
 ## Configuration
 
-Configure the environment variables for the project by creating a `.env` file and adding your Google Maps API Key:
+Configure the environment variables for the project by creating a `.env` file and adding your Google Maps API Key.
 
 ## Prerequisites
 
-Before running the project, ensure you have the following prerequisites:
+Before running the project, make sure you have the following prerequisites:
 
 - [ ] npm/yarn installed
 - [ ] npm/yarn dependencies installed
@@ -41,7 +41,7 @@ To use the project:
 ### Development
 
 1. Run the development server: `npm run dev` or `yarn dev`
-2. Open your browser and go to http://localhost:3000 to see the result.
+2. Open your browser and navigate to http://localhost:3000 to see the result.
 
 ### Production
 
@@ -49,17 +49,17 @@ To deploy this Next.js project on Google Cloud Platform, follow these steps:
 
 1. Install Docker on your machine.
 2. Build the Docker image of the application.
-3. Tag the image with the name of the Artifact Registry project.
+3. Tag the image with the name of the Artifact Registry or Container Registry project.
 4. Push the project image to the Artifact Registry or Container Registry.
-5. Deploy an instance of the image using Cloud Run to listen on port 80.
+5. Deploy an instance of the image using Cloud Run, listening on port 80.
 6. Verify the deployment on your website.
 
 ## Features
 
-- Slideshow of images for each apartment
+- Slideshow of images for each apartment-
 - Internationalization to cater to a multitude of foreign clients
-- Filtering based on desired amount of people, views, bathrooms, and bedrooms
-- Link to reserve for each apartment
+- Filtering based on the desired number of people, views, bathrooms, and bedrooms
+- Reservation link for each apartment
 - Directions and location information in case Airbnb information is faulty or difficult to understand
 
 
@@ -74,4 +74,4 @@ For questions, feedback, or inquiries, feel free to contact me via email at elki
 
 ## Acknowledgments
 
-I would like to acknowledge Hotels.com and Bookings.com which this application was inspired by.
+I would like to acknowledge Hotels.com and Bookings.com, which inspired this application.
