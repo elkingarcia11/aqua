@@ -70,7 +70,7 @@ Visit [AQUA Puerto Plata](https://aquapuertoplata.com/) to interact with the pro
 
 ## Contact Information
 
-For questions or feedback, feel free to reach out to us at elkingarcia.11@gmail.com.
+For questions, feedback, or inquiries, feel free to contact me at elkingarcia.11@gmail.com or connect with me on [LinkedIn](https://www.linkedin.com/in/elkingarcia11/)
 
 ## Acknowledgments
 
