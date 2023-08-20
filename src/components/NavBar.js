@@ -5,8 +5,15 @@ import { useTranslation } from "react-i18next";
 import styles from "@/styles/NavBar.module.css";
 import FilterModal from "./FilterModal";
 
+// Importing the react-scroll library for smooth scrolling
 var Scroll = require("react-scroll");
 
+/**
+ * The NavBar component displays navigation buttons for scrolling and opening the filter modal.
+ *
+ * @param {Object} filterApartments - A function to filter apartments based on criteria.
+ * @returns {JSX.Element} - JSX element representing the NavBar.
+ */
 export default function NavBar({ filterApartments }) {
   const { t } = useTranslation();
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
