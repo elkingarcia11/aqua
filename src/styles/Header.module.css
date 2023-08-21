@@ -1,19 +1,19 @@
 .header img {
-    margin-left: 10px;
-    height: 90%;
-    object-fit: cover;
-  }
-  .header{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
-    border-bottom: lightgray solid 1px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 99;
-    background-color: #fff;
-  }
+  margin-left: 10px;
+  height: 90%;
+  object-fit: cover;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  border-bottom: lightgray solid 1px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background-color: #fff;
+}

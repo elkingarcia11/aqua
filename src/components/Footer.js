@@ -14,9 +14,5 @@ import styles from "@/styles/Footer.module.css";
  * @returns {JSX.Element} Footer component JSX element.
  */
 export default function Footer() {
-    return (
-        <div className={`${styles.footerDiv}`} >
-            © 2023 AQUA 
-        </div>
-    )
+  return <div className={`${styles.footerDiv}`}>© 2023 AQUA</div>;
 }

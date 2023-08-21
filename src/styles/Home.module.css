@@ -1,21 +1,21 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content:flex-start;
+  justify-content: flex-start;
   align-items: center;
-  min-height: 100vh; 
+  min-height: 100vh;
   position: relative;
-  background-color: #F6F4F3;
+  background-color: #f6f4f3;
 }
 
 .aptCard {
   margin: 2vh;
 }
-.apartmentList{
+.apartmentList {
   margin-bottom: 3vh;
 }
 
-.iframe{
+.iframe {
   width: 95vw;
   height: 225px;
   margin-top: 3vh;
@@ -23,7 +23,7 @@
   border: none;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
 }
-.iframeContainer{
+.iframeContainer {
   display: flex;
   justify-content: center;
 }
@@ -37,15 +37,12 @@
 
 /* Mobile */
 @media (max-width: 700px) {
-
 }
 /* Tablet and Smaller Desktop */
 @media (min-width: 701px) and (max-width: 1120px) {
-
 }
 
 @media (prefers-color-scheme: dark) {
-
 }
 
 @keyframes rotate {
@@ -57,9 +54,8 @@
   }
 }
 
-
 @media (min-width: 1024px) {
-  .iframe{
+  .iframe {
     width: 60vw;
     height: 450px;
   }

@@ -4,9 +4,9 @@ import styles from "@/styles/NavBar.module.css";
 
 /**
  * FilterModal Component
- * 
+ *
  * A reusable component that provides a modal for filtering options.
- * 
+ *
  * @module FilterModal
  * @param {Object} props - The component props.
  * @param {boolean} props.isFilterModalOpen - Flag to control the visibility of the modal.
@@ -33,7 +33,7 @@ export default function FilterModal({
   toggleModal,
   submitForm,
   toggleCheckbox,
-  reset
+  reset,
 }) {
   const submit = () => {
     toggleModal();
@@ -50,7 +50,9 @@ export default function FilterModal({
           <span>{t("filter")}</span>
         </div>
         <div className={`${styles.modalBody}`}>
-          <div className={`${styles.modalTitle}`}>{t("filter")} {t("by")}</div>
+          <div className={`${styles.modalTitle}`}>
+            {t("filter")} {t("by")}
+          </div>
 
           <div className={`${styles.checkboxRow}`}>
             <input
@@ -122,10 +124,10 @@ export default function FilterModal({
           </div>
           <div className={`${styles.buttonRow}`}>
             <button className={`${styles.doneButton}`} onClick={reset}>
-            {t("reset")}
+              {t("reset")}
             </button>
             <button className={`${styles.doneButton}`} onClick={submit}>
-            {t("done")}
+              {t("done")}
             </button>
           </div>
         </div>

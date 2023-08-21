@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { Pagination, Navigation } from 'swiper';
+import { Pagination, Navigation } from "swiper";
 import { FaBed, FaBath } from "react-icons/fa";
 import { IoPeopleOutline } from "react-icons/io5";
 import styles from "@/styles/ApartmentCard.module.css";
@@ -21,7 +21,7 @@ import "swiper/css/navigation";
  * @param {string} link - The reservation link for the apartment.
  * @returns {JSX.Element} - Rendered ApartmentCard component.
  */
-export default function ApartmentCard({ aptId, sleeps, beds, baths, link }) {
+export default function ApartmentCard({ aptId, sleeps, beds, baths, link, imageUrl }) {
   const { t } = useTranslation();
   const [images, setImages] = useState([]);
 
@@ -52,18 +52,17 @@ export default function ApartmentCard({ aptId, sleeps, beds, baths, link }) {
     }
 
     // Map image URLs to their default URLs and update the state directly
-    setImages(imgs.map(imageUrl => imageUrl.default));
+    setImages(imgs.map((imageUrl) => imageUrl.default));
   }, [aptId]);
 
   return (
     <div className={`${styles.swiperContainer}`}>
-
       {/* Swiper component for image slider */}
       <Swiper
         cssMode={true}
         loop
         style={{
-          '--swiper-navigation-color': '#fff',
+          "--swiper-navigation-color": "#fff",
         }}
         navigation
         lazy={true}
@@ -76,7 +75,12 @@ export default function ApartmentCard({ aptId, sleeps, beds, baths, link }) {
         {images.map((image, index) => (
           <SwiperSlide key={index} className={`${styles.swiperSlide}`}>
             {/* Lazy-loaded image */}
-            <LazyLoadImage src={image.src} alt={image.src} loading="lazy" className={`${styles.swiperSlideImg}`}/>
+            <LazyLoadImage
+              src={image.src}
+              alt={image.src}
+              loading="lazy"
+              className={`${styles.swiperSlideImg}`}
+            />
           </SwiperSlide>
         ))}
       </Swiper>

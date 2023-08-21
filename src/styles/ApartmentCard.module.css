@@ -10,11 +10,11 @@
   color: white;
 }
 
-.swiperSlideImg  {
+.swiperSlideImg {
   width: 100%;
   object-fit: cover;
 }
-.reserve{
+.reserve {
   display: flex;
 }
 .reserveButton:hover {
@@ -67,7 +67,6 @@
   font-weight: bold;
 }
 
-
 @media (min-width: 1024px) {
   .swiperContainer {
     display: flex;
@@ -75,7 +74,7 @@
     justify-content: flex-start;
     margin-top: 3vh;
     width: 60vw;
-  } 
+  }
   .swiper {
     width: 50%;
   }
@@ -101,12 +100,11 @@
   .columnTwo {
     margin-left: 1vw;
   }
-  .reserve{
+  .reserve {
     display: flex;
     align-items: flex-end;
   }
 }
-
 
 @media (max-width: 1023px) {
   .swiperContainer {
@@ -121,7 +119,7 @@
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
-    align-items:flex-end;
+    align-items: flex-end;
   }
 
   .aptSub {
@@ -142,7 +140,7 @@
   .columnTwo {
     margin-left: 3vw;
   }
-  .details{
+  .details {
     justify-content: space-between;
   }
 }

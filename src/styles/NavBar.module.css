@@ -1,4 +1,4 @@
-.navbar{
+.navbar {
   margin-top: 60px;
   display: flex;
   flex: row;
@@ -6,7 +6,7 @@
   width: 100vw;
 }
 
-.modalHeader{
+.modalHeader {
   padding-top: 10px;
   padding-bottom: 10px;
   width: 100%;
@@ -14,15 +14,15 @@
   display: flex;
   align-items: center;
 }
-.modalHeader span{
+.modalHeader span {
   font-weight: bold;
   font-size: 18px;
 }
-.modalBody{
+.modalBody {
   padding-left: 15px;
   padding-right: 15px;
 }
-.exitButton{
+.exitButton {
   margin-left: 10px;
   margin-right: 15px;
   transform: rotate(45deg);
@@ -30,7 +30,7 @@
   background-color: white;
   border: none;
 }
-.button{
+.button {
   margin-top: 3vh;
   display: flex;
   justify-content: center;
@@ -41,7 +41,7 @@
   border: 1px solid #365262;
   border-radius: 40px;
   padding: 10px 20px;
-  background-color: #F6F4F3;
+  background-color: #f6f4f3;
   cursor: pointer;
 }
 
@@ -55,11 +55,11 @@
   border: #6193b0 solid 1px;
 }
 
-.buttonRow{
+.buttonRow {
   display: flex;
   justify-content: space-around;
 }
-.doneButton{
+.doneButton {
   width: 40%;
   padding: 10px;
   margin-bottom: 15px;
@@ -70,20 +70,19 @@
   font-weight: bold;
   font-size: 16px;
 }
-.doneButton:hover{
-    background: #6193b0;
-}
-
-.doneButton:active{
+.doneButton:hover {
   background: #6193b0;
 }
 
+.doneButton:active {
+  background: #6193b0;
+}
 
-.icon{
+.icon {
   margin-right: 5px;
 }
 
-.filterModal{
+.filterModal {
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -100,7 +99,7 @@
   border-radius: 7.5px;
 }
 
-.modalTitle{
+.modalTitle {
   font-weight: bold;
   font-size: 22px;
   margin-top: 20px;
@@ -109,19 +108,19 @@
 .detailRow input {
   margin-right: 10px;
 }
-.checkboxRow{
+.checkboxRow {
   display: flex;
   flex-direction: row;
   align-items: center;
   height: 50px;
   font-size: 18px;
 }
-.checkboxRow input[type=checkbox] {
+.checkboxRow input[type="checkbox"] {
   width: 20px;
   height: 20px;
   box-sizing: border-box;
 }
-.detailRow{
+.detailRow {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -130,12 +129,12 @@
   margin-bottom: 20px;
 }
 
-.checkboxRow span{
+.checkboxRow span {
   margin-left: 10px;
   font-size: 18px;
 }
 
-.detailButtonContainer{
+.detailButtonContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -143,7 +142,7 @@
   margin-left: 20px;
   width: 150px;
 }
-.detailsButtons{
+.detailsButtons {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -152,21 +151,20 @@
   background-color: #fff;
   color: #333;
   cursor: pointer;
-
 }
-.detailsButtons span{
+.detailsButtons span {
   font-size: 20px;
 }
-.detailsTitle{
+.detailsTitle {
   font-size: 18px;
   width: 150px;
 }
 
 @media (min-width: 1024px) {
-  .filterModal{
+  .filterModal {
     width: 30%;
   }
-  .navbar{
+  .navbar {
     width: 60vw;
   }
 }

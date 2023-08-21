@@ -1,7 +1,6 @@
-import { useEffect, useState, useRef } from "react";
+import { useState } from "react";
 import { FaMap, FaSearch } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
-
 import styles from "@/styles/NavBar.module.css";
 import FilterModal from "./FilterModal";
 
@@ -35,13 +34,13 @@ export default function NavBar({ filterApartments }) {
   }
 
   const reset = () => {
-    setIsInputCheckbox(false)
-    setIsSleeps(0)
-    setIsBathrooms(0)
-    setIsBedrooms(0)
-    setIsFilterModalOpen(false)
+    setIsInputCheckbox(false);
+    setIsSleeps(0);
+    setIsBathrooms(0);
+    setIsBedrooms(0);
+    setIsFilterModalOpen(false);
     filterApartments(false, 0, 0, 0);
-  }
+  };
 
   const subtract = (i) => {
     if (i === 1 && isSleeps > 0) {

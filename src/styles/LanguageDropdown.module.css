@@ -6,7 +6,7 @@
   background-color: white;
 }
 
-.languageDropdown select{
+.languageDropdown select {
   background-color: white;
   font-size: 16px;
   margin-left: 1.5vw;
@@ -21,7 +21,7 @@
   width: 20px;
   height: 20px;
   cursor: pointer;
-  color: #365262
+  color: #365262;
 }
 
 .languageDropdown .currentLanguage {
@@ -55,7 +55,7 @@
 }
 
 @media (min-width: 1024px) {
-  .languageDropdown select{
+  .languageDropdown select {
     margin-left: 0.5vw;
   }
 }
