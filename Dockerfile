@@ -1,5 +1,13 @@
 # Stage 1: Base image for installing dependencies and building the source code
 FROM node:18-alpine AS builder
+
+# Use the official Node.js runtime as the base image
+FROM node:lts AS development
+
+ARG GOOGLE_MAPS_API_KEY
+
+ENV GOOGLE_MAPS_API_KEY=$GOOGLE_MAPS_API_KEY
+
 WORKDIR /app
 
 # Install dependencies and build the application

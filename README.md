@@ -61,6 +61,7 @@ Create a secret in Secret Manager to securely store your API key.
 ### 3. Cloud Build Setup
 - Navigate to Cloud Build and create a connection between your source code repository and Cloud Build.
 - Configure access to your repository to allow Cloud Build to fetch the source code.
+- Grant the Secret Manager Secret Accessor (roles/secretmanager.secretAccessor) IAM role for the secret to the Cloud Build service account.
 
 ### 4. Cloud Run Service
 - Create a Cloud Run service for hosting your Next.js application.
