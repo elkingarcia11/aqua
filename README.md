@@ -31,7 +31,6 @@ To set up and install the project, follow these steps:
 
 Configure the project's environment variables by creating a `.env` file and adding your Google Maps API Key.
 
-
 ## Prerequisites
 
 Before running the project, ensure you have the following prerequisites:
@@ -48,7 +47,8 @@ To use the project:
 
 1. Run the development server: `npm run dev` or `yarn dev`
 2. Open your browser and navigate to http://localhost:3000 to see the result.
-## Deploying Next.js Project on Google Cloud Platform
+
+## Deploying Next.js Project on Google Cloud Platform with CI/CD
 
 Follow these steps to deploy your Next.js project on Google Cloud Platform (GCP):
 
