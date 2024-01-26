@@ -5,10 +5,12 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Pagination, Navigation } from "swiper";
 import { FaBed, FaBath } from "react-icons/fa";
 import { IoPeopleOutline } from "react-icons/io5";
+import Spinner from "./Spinner";
 import styles from "@/styles/ApartmentCard.module.css";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import ImageComponent from "./ImageComponent";
 
 /**
  * ApartmentCard component displays information about an apartment,
@@ -21,7 +23,14 @@ import "swiper/css/navigation";
  * @param {string} link - The reservation link for the apartment.
  * @returns {JSX.Element} - Rendered ApartmentCard component.
  */
-export default function ApartmentCard({ aptId, sleeps, beds, baths, link, imageUrl }) {
+export default function ApartmentCard({
+  aptId,
+  sleeps,
+  beds,
+  baths,
+  link,
+  imageUrl,
+}) {
   const { t } = useTranslation();
   const [images, setImages] = useState([]);
 
@@ -74,13 +83,7 @@ export default function ApartmentCard({ aptId, sleeps, beds, baths, link, imageU
       >
         {images.map((image, index) => (
           <SwiperSlide key={index} className={`${styles.swiperSlide}`}>
-            {/* Lazy-loaded image */}
-            <LazyLoadImage
-              src={image.src}
-              alt={image.src}
-              loading="lazy"
-              className={`${styles.swiperSlideImg}`}
-            />
+            <ImageComponent src={image.src} alt={image.src} />
           </SwiperSlide>
         ))}
       </Swiper>

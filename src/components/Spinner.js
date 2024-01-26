@@ -1,18 +1,18 @@
-export default function Spinner({ isLoading }) {
-  if (isLoading) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          marginTop: "25px",
-        }}
-      >
-        <img src="/spinner.svg" alt="spinner" width={"50px"} />
-      </div>
-    );
-  } else {
-    return <div />;
-  }
+import Image from "next/image";
+
+export default function Spinner({ height }) {
+  const h = height.toString() + "px";
+  return (
+    <div
+      style={{
+        display: "flex",
+        flex: "1",
+        height: h,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Image src="/spinner.svg" alt="spinner" width={50} height={50} />
+    </div>
+  );
 }

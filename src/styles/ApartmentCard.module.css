@@ -3,22 +3,28 @@
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
   width: 95vw;
   border-radius: 7.5px;
+  overflow: hidden; /* Ensure that the image doesn't overflow its container */
 }
+
 .swiper {
   border-radius: 7.5px;
   background: white;
   color: white;
+  width: 100%;
 }
 
 .swiperSlideImg {
   width: 100%;
+  height: 56.25%; /* 9 / 16 * 100 (16:9 aspect ratio) */
   object-fit: cover;
 }
+
 .reserve {
   display: flex;
 }
+
 .reserveButton:hover {
-  background: #6193b0;
+  background: #0d2330;
 }
 
 .reserveButton:active {
@@ -39,10 +45,12 @@
   flex-direction: row;
   line-height: 25px;
 }
+
 .aptSub {
   font-size: 16px;
   color: gray;
 }
+
 .details {
   font-size: 18px;
   display: flex;
@@ -75,12 +83,15 @@
     margin-top: 3vh;
     width: 60vw;
   }
+
   .swiper {
     width: 50%;
   }
+
   .swiperSlideImg {
     height: 100%;
   }
+
   .descriptionContainer {
     padding-top: 2vh;
     padding-left: 2vw;
@@ -97,9 +108,11 @@
   .iconAndDetails span {
     margin-left: 0.5vw;
   }
+
   .columnTwo {
     margin-left: 1vw;
   }
+
   .reserve {
     display: flex;
     align-items: flex-end;
@@ -140,6 +153,7 @@
   .columnTwo {
     margin-left: 3vw;
   }
+
   .details {
     justify-content: space-between;
   }

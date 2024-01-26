@@ -1,5 +1,6 @@
 import styles from "@/styles/Header.module.css";
 import LanguageDropdown from "./LanguageDropdown";
+import Image from "next/image";
 
 /**
  * Header component for displaying the logo and language dropdown.
@@ -17,7 +18,13 @@ import LanguageDropdown from "./LanguageDropdown";
 export default function Headers() {
   return (
     <div className={`${styles.header}`}>
-      <img src="/HeaderLogo.png" alt="AQUA" />
+      <Image
+        src="/HeaderLogo.png"
+        alt="AQUA"
+        width={162}
+        height={54}
+        priority={true}
+      />
       <LanguageDropdown />
     </div>
   );
