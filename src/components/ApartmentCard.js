@@ -5,11 +5,12 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Pagination, Navigation } from "swiper";
 import { FaBed, FaBath } from "react-icons/fa";
 import { IoPeopleOutline } from "react-icons/io5";
-import Spinner from "./Spinner";
 import styles from "@/styles/ApartmentCard.module.css";
+
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+
 import ImageComponent from "./ImageComponent";
 
 /**
@@ -82,7 +83,7 @@ export default function ApartmentCard({
         className={`${styles.swiper}`}
       >
         {images.map((image, index) => (
-          <SwiperSlide key={index} className={`${styles.swiperSlide}`}>
+          <SwiperSlide key={index} className="swiperSlideImg">
             <ImageComponent src={image.src} alt={image.src} />
           </SwiperSlide>
         ))}

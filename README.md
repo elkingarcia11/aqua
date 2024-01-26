@@ -44,22 +44,42 @@ Before running the project, ensure you have the following prerequisites:
 
 To use the project:
 
-### Development
+### Deploying Next.js Project on localhost
 
 1. Run the development server: `npm run dev` or `yarn dev`
 2. Open your browser and navigate to http://localhost:3000 to see the result.
+## Deploying Next.js Project on Google Cloud Platform
 
-### Production
+Follow these steps to deploy your Next.js project on Google Cloud Platform (GCP):
 
-To deploy this Next.js project on Google Cloud Platform, follow these steps:
+### 1. Enable Secret Manager API
+Enable the Secret Manager API on your GCP project.
 
-1. Install Docker on your machine.
-2. Build the Docker image of the application.
-3. Tag the image with the name of the Artifact Registry or Container Registry project.
-4. Push the project image to the Artifact Registry or Container Registry.
-5. Deploy an instance of the image using Cloud Run, configured to listen on port 80.
-6. Verify the deployment by accessing your website.
-   
+### 2. Create a Secret for API Key
+Create a secret in Secret Manager to securely store your API key.
+
+### 3. Cloud Build Setup
+- Navigate to Cloud Build and create a connection between your source code repository and Cloud Build.
+- Configure access to your repository to allow Cloud Build to fetch the source code.
+
+### 4. Cloud Run Service
+- Create a Cloud Run service for hosting your Next.js application.
+
+### 5. Continuous Deployment
+- Set up continuous deployment for your project by configuring Cloud Build to deploy new revisions from your source code repository.
+
+### 6. Cloud Build and Cloud Run Integration
+- Link your source code repository with the Cloud Run service to streamline the deployment process.
+
+### 7. Update Cloud Build Configuration
+- Generate or update the `cloudbuild.yaml` file in your project.
+- Include the necessary steps to retrieve the API key secret from Secret Manager and add it to your project's `.env` file during the build process.
+
+### 8. Re-run Build Trigger
+Rerun the Cloud Build trigger to initiate the build process. This will include the new configuration for handling API keys.
+
+By following these steps, you'll deploy your Next.js project on Google Cloud Platform, ensuring secure management of sensitive information like API keys. Continuous deployment through Cloud Build and Cloud Run integration simplifies the deployment workflow and keeps your application up-to-date with the latest revisions.
+
 ## Features
 
 - Engaging slideshow of images for each apartment

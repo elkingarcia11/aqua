@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Spinner from "./Spinner";
 
 const ImageComponent = ({ src, alt }) => {
   const [width, setWidth] = useState(0);
@@ -20,12 +19,12 @@ const ImageComponent = ({ src, alt }) => {
       // You can adjust this logic based on your design requirements
 
       const calculatedWidth =
-        screenWidth >= 1024 ? 0.6 * screenWidth : 0.95 * screenWidth;
+        screenWidth >= 1024 ? 0.3 * screenWidth : 0.95 * screenWidth;
 
       setWidth(calculatedWidth);
 
       // Calculate height in pixels based on aspect ratio
-      const aspectRatio = 16 / 9;
+      const aspectRatio = 3754 / 2816;
       const calculatedHeight = calculatedWidth / aspectRatio;
       setHeight(calculatedHeight);
     };
