@@ -9,6 +9,8 @@ const ImageComponent = ({ src, alt }) => {
   const imageRef = useRef();
 
   useEffect(() => {
+    let isMounted = true; // Flag to track component mount state
+
     const handleResize = () => {
       // Calculate the width based on the screen size
       const screenWidth = window.innerWidth;
@@ -28,6 +30,18 @@ const ImageComponent = ({ src, alt }) => {
       setIsLoaded(true);
     };
 
+    const cleanup = () => {
+      // Check if the component is still mounted before removing the event listener
+      if (isMounted) {
+        window.removeEventListener("resize", handleResize);
+
+        // Check if imageRef.current is not null before removing the load event listener
+        if (imageRef.current) {
+          imageRef.current.removeEventListener("load", handleImageLoad);
+        }
+      }
+    };
+
     // Initial call to set the initial width and height
     handleResize();
 
@@ -37,12 +51,10 @@ const ImageComponent = ({ src, alt }) => {
     // Attach the load event listener to the image
     imageRef.current.addEventListener("load", handleImageLoad);
 
+    // Cleanup function on component unmount
     return () => {
-      // Cleanup the event listener on component unmount
-      window.removeEventListener("resize", handleResize);
-
-      // Remove the load event listener on component unmount
-      imageRef.current.removeEventListener("load", handleImageLoad);
+      isMounted = false; // Update the mounted state
+      cleanup();
     };
   }, []); // Empty dependency array to run the effect only once on mount
 
