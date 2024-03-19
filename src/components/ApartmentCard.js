@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Pagination, Navigation } from "swiper";
 import { FaBed, FaBath } from "react-icons/fa";
 import { IoPeopleOutline } from "react-icons/io5";

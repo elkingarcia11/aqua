@@ -7,7 +7,7 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 
 import styles from "@/styles/Home.module.css";
-import "../i18n"; // Import internationalization settings
+import "../i18n";
 
 var Scroll = require("react-scroll");
 var Element = Scroll.Element;

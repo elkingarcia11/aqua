@@ -4,3 +4,5 @@ README.md
 .next
 .git
 readme_images
+.eslintrc.json
+jsconfig.json

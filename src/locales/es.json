@@ -8,8 +8,8 @@
   "direction": "Dirección",
   "map": "Mapa",
   "filter": "Filtro",
-  "filterBy":"Filtrar por",
-  "oceanview":"Vista al mar",
-  "reset":"Restablecer",
-  "done":"Hecho"
+  "filterBy": "Filtrar por",
+  "oceanview": "Vista al mar",
+  "reset": "Restablecer",
+  "done": "Hecho"
 }
