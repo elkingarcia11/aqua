@@ -1,12 +1,13 @@
 import Image from "next/image";
 
-export default function Spinner({ height }) {
+export default function Spinner() {
   return (
     <div
       style={{
         display: "flex",
         flex: "1",
-        height: height,
+        height: "100%",
+        width: "100%",
         justifyContent: "center",
         alignItems: "center",
       }}

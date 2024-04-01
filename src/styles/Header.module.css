@@ -1,6 +1,7 @@
 .header img {
   margin-left: 10px;
   height: 90%;
+  width: auto;
   object-fit: cover;
 }
 .header {

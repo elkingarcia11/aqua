@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Inter } from "next/font/google";
 import ApartmentCard from "@/components/ApartmentCard";
 import Head from "next/head";
@@ -23,7 +23,6 @@ const apartments = [
     beds: 2,
     baths: 2,
     link: "https://abnb.me/DqS6YriYJrb",
-    imageUrl: "../../public/aquaOne",
   },
   {
     id: 2,
@@ -32,7 +31,6 @@ const apartments = [
     beds: 1,
     baths: 1,
     link: "https://abnb.me/g4odQfhYJrb",
-    imageUrl: "../../public/aquaTwo",
   },
   {
     id: 3,
@@ -41,7 +39,6 @@ const apartments = [
     beds: 2,
     baths: 1,
     link: "https://abnb.me/ekkqMigYJrb",
-    imageUrl: "../../public/aquaThree",
   },
   {
     id: 4,
@@ -50,7 +47,6 @@ const apartments = [
     beds: 1,
     baths: 1,
     link: "https://abnb.me/WOKS9dfYJrb",
-    imageUrl: "../../public/aquaFour",
   },
   {
     id: 5,
@@ -59,7 +55,6 @@ const apartments = [
     beds: 2,
     baths: 1,
     link: "https://abnb.me/RHivkudYJrb",
-    imageUrl: "../../public/aquaFive",
   },
   {
     id: 6,
@@ -68,7 +63,6 @@ const apartments = [
     beds: 1,
     baths: 1,
     link: "https://abnb.me/DFrJkt4XJrb",
-    imageUrl: "../../public/aquaSix",
   },
 ];
 
@@ -76,6 +70,56 @@ export default function Home() {
   // Use the "useState" hook to manage the filtered apartment list
   const [filteredApartmentList, setFilteredApartmentList] =
     useState(apartments);
+
+  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    let isMounted = true; // Flag to track component mount state
+
+    const handleResize = () => {
+      // Calculate the width based on the screen size
+      const screenWidth = window.innerWidth;
+
+      const calculatedWidth =
+        screenWidth >= 1024 ? 0.3 * screenWidth : 0.95 * screenWidth;
+
+      setWidth(calculatedWidth);
+
+      // Calculate height in pixels based on aspect ratio
+      const aspectRatio = 3754 / 2816;
+      const calculatedHeight = calculatedWidth / aspectRatio;
+      setHeight(calculatedHeight);
+    };
+
+    const handleImageLoad = () => {
+      // Do something when the image loads, if needed
+    };
+
+    const cleanup = () => {
+      // Check if the component is still mounted before removing the event listener
+      if (isMounted) {
+        window.removeEventListener("resize", handleResize);
+
+        // Check if imageRef.current is not null before removing the load event listener
+        if (imageRef.current) {
+          imageRef.current.removeEventListener("load", handleImageLoad);
+        }
+      }
+    };
+
+    // Initial call to set the initial width and height
+    handleResize();
+
+    // Attach event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup function on component unmount
+    return () => {
+      isMounted = false; // Update the mounted state
+      cleanup();
+    };
+  }, []); // Empty dependency array to run the effect only once on mount
 
   // Construct the Google Maps embed URL with the API key and location details
   const gmapsSrc = `https://www.google.com/maps/embed/v1/place?key=${process.env.GOOGLE_MAPS_API_KEY}&q=AQUA+EL+PUEBLITO+PUERTO+PLATA+RD&center=19.773993872098327,-70.65216997523102&zoom=17`;
@@ -103,6 +147,7 @@ export default function Home() {
     }
     setFilteredApartmentList(filteredApartments);
   };
+
   return (
     <>
       <Head>
@@ -127,6 +172,8 @@ export default function Home() {
                 baths={apartment.baths}
                 link={apartment.link}
                 imageUrl={apartment.imageUrl}
+                height={height}
+                width={width}
               />
             </Element>
           ))}
@@ -135,7 +182,7 @@ export default function Home() {
               className={`${styles.iframe}`}
               loading="lazy"
               allowFullScreen
-              referrerpolicy="no-referrer-when-downgrade"
+              referrerPolicy="no-referrer-when-downgrade"
               src={gmapsSrc}
             ></iframe>
           </Element>

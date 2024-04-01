@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
 import { FaBed, FaBath } from "react-icons/fa";
 import { IoPeopleOutline } from "react-icons/io5";
 import styles from "@/styles/ApartmentCard.module.css";
-
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
 
 import ImageComponent from "./ImageComponent";
 
@@ -30,6 +26,8 @@ export default function ApartmentCard({
   baths,
   link,
   imageUrl,
+  height,
+  width,
 }) {
   const { t } = useTranslation();
   const [images, setImages] = useState([]);
@@ -67,26 +65,18 @@ export default function ApartmentCard({
   return (
     <div className={`${styles.swiperContainer}`}>
       {/* Swiper component for image slider */}
-      <Swiper
-        cssMode={true}
-        loop
-        style={{
-          "--swiper-navigation-color": "#fff",
-        }}
-        navigation
-        lazy={true}
-        pagination={{
-          type: "fraction",
-        }}
-        modules={[Navigation, Pagination]}
-        className={`${styles.swiper}`}
-      >
+      <Carousel width={width} showThumbs={false}>
         {images.map((image, index) => (
-          <SwiperSlide key={index} className="swiperSlideImg">
-            <ImageComponent src={image.src} alt={image.src} />
-          </SwiperSlide>
+          <div key={index} className="swiperSlideImg">
+            <ImageComponent
+              src={image.src}
+              alt={image.src}
+              width={width}
+              height={height}
+            />
+          </div>
         ))}
-      </Swiper>
+      </Carousel>
 
       {/* Apartment description and details */}
       <div className={`${styles.descriptionContainer}`}>
