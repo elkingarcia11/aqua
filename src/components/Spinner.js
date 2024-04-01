@@ -1,13 +1,12 @@
 import Image from "next/image";
 
 export default function Spinner({ height }) {
-  const h = height.toString() + "px";
   return (
     <div
       style={{
         display: "flex",
         flex: "1",
-        height: h,
+        height: height,
         justifyContent: "center",
         alignItems: "center",
       }}

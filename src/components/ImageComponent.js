@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Spinner from "./Spinner";
 
 const ImageComponent = ({ src, alt }) => {
   const [width, setWidth] = useState(0);
@@ -24,10 +25,6 @@ const ImageComponent = ({ src, alt }) => {
       const aspectRatio = 3754 / 2816;
       const calculatedHeight = calculatedWidth / aspectRatio;
       setHeight(calculatedHeight);
-    };
-
-    const handleImageLoad = () => {
-      setIsLoaded(true);
     };
 
     const cleanup = () => {
@@ -58,15 +55,21 @@ const ImageComponent = ({ src, alt }) => {
     };
   }, []); // Empty dependency array to run the effect only once on mount
 
+  const handleImageLoad = () => {
+    setIsLoaded(true); // Corrected to true
+  };
+
   return (
     <div>
+      {isLoaded ? null : <Spinner height={height} />}
+      {/* Display spinner while loading */}
       <Image
         ref={imageRef}
         src={src}
-        alt={alt}
+        onLoad={() => handleImageLoad()}
         width={width}
         height={height}
-        loading={isLoaded ? "eager" : "lazy"}
+        alt={alt}
       />
     </div>
   );
