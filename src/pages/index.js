@@ -148,6 +148,8 @@ export default function Home() {
     setFilteredApartmentList(filteredApartments);
   };
 
+  const scrollToTop = () => {};
+
   return (
     <>
       <Head>
@@ -161,7 +163,9 @@ export default function Home() {
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
         <Header />
-        <NavBar filterApartments={filterApartments} />
+        <Element name="navbar">
+          <NavBar filterApartments={filterApartments} />
+        </Element>
         <div className={`${styles.apartmentList}`}>
           {filteredApartmentList.map((apartment) => (
             <Element key={apartment.id}>

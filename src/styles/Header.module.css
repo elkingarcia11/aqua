@@ -18,3 +18,15 @@
   z-index: 99;
   background-color: #fff;
 }
+
+.navbarButton {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+  border: none;
+}
+
+.navbarButton :active {
+  transform: translateY(1px);
+}
