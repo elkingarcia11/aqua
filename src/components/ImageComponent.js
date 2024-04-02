@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import Spinner from "./Spinner";
 
-const ImageComponent = ({ src, alt, width, height }) => {
+const ImageComponent = ({ src, alt, width, height, priority }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const imageRef = useRef();
@@ -10,15 +10,23 @@ const ImageComponent = ({ src, alt, width, height }) => {
   return (
     <div style={{ height: height, width: width }}>
       {isLoaded ? null : <Spinner />}
-      <Image
-        ref={imageRef}
-        src={src}
-        onLoadingComplete={(e) => setIsLoaded(true)}
-        width={width}
-        height={height}
-        alt={alt}
-        priority
-      />
+      {isLoaded ? (
+        <Image
+          ref={imageRef}
+          src={src}
+          width={width}
+          height={height}
+          alt={alt}
+          priority={priority}
+        />
+      ) : (
+        <Image
+          src={src}
+          style={{ display: "none" }}
+          onLoad={() => setIsLoaded(true)}
+          alt={alt}
+        />
+      )}
     </div>
   );
 };
