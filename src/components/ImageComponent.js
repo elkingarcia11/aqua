@@ -25,7 +25,7 @@ const ImageComponent = ({ src, alt, width, height, priority }) => {
         src={src}
         alt={alt}
         style={{ display: "none" }}
-        onLoad={handleImageLoaded}
+        onLoad={() => handleImageLoaded()}
       />
     </div>
   );
