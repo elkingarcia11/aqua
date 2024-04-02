@@ -73,7 +73,7 @@ export default function ApartmentCard({
               alt={image.src}
               width={width}
               height={height}
-              priority={index === 0 ? "true" : "false"}
+              loading={index === 0 ? "eager" : "lazy"}
             />
           </div>
         ))}
