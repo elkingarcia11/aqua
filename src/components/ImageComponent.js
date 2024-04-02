@@ -5,28 +5,28 @@ import Spinner from "./Spinner";
 const ImageComponent = ({ src, alt, width, height, priority }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const imageRef = useRef();
+  const handleImageLoaded = () => {
+    setIsLoaded(true);
+  };
 
   return (
     <div style={{ height: height, width: width }}>
-      {isLoaded ? null : <Spinner />}
-      {isLoaded ? (
+      {!isLoaded && <Spinner />}
+      {isLoaded && (
         <Image
-          ref={imageRef}
           src={src}
           width={width}
           height={height}
           alt={alt}
           priority={priority}
         />
-      ) : (
-        <Image
-          src={src}
-          style={{ display: "none" }}
-          onLoad={() => setIsLoaded(true)}
-          alt={alt}
-        />
       )}
+      <img
+        src={src}
+        alt={alt}
+        style={{ display: "none" }}
+        onLoad={handleImageLoaded}
+      />
     </div>
   );
 };
