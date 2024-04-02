@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import { FaBed, FaBath } from "react-icons/fa";
+import { FaBed, FaBath, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+
 import { IoPeopleOutline } from "react-icons/io5";
 import styles from "@/styles/ApartmentCard.module.css";
 
@@ -64,8 +65,7 @@ export default function ApartmentCard({
 
   return (
     <div className={`${styles.swiperContainer}`}>
-      {/* Swiper component for image slider */}
-      <Carousel width={width} showThumbs={false}>
+      <Carousel width={width} showThumbs={false} showIndicators={false}>
         {images.map((image, index) => (
           <div key={index} className="swiperSlideImg">
             <ImageComponent

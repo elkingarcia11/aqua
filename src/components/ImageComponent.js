@@ -7,21 +7,17 @@ const ImageComponent = ({ src, alt, width, height }) => {
 
   const imageRef = useRef();
 
-  const handleImageLoad = () => {
-    setIsLoaded(true); // Corrected to true
-  };
-
   return (
     <div style={{ height: height, width: width }}>
       {isLoaded ? null : <Spinner />}
-      {/* Display spinner while loading */}
       <Image
         ref={imageRef}
         src={src}
-        onLoad={() => handleImageLoad()}
+        onLoadingComplete={(e) => setIsLoaded(true)}
         width={width}
         height={height}
         alt={alt}
+        priority
       />
     </div>
   );
