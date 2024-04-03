@@ -65,7 +65,12 @@ export default function ApartmentCard({
 
   return (
     <div className={`${styles.swiperContainer}`}>
-      <Carousel width={width} showThumbs={false} showIndicators={false}>
+      <Carousel
+        width={width}
+        showThumbs={false}
+        showIndicators={false}
+        className={`${styles.carousel}`}
+      >
         {images.map((image, index) => (
           <div key={index} className="swiperSlideImg">
             <ImageComponent

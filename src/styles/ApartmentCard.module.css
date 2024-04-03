@@ -23,7 +23,6 @@
   background-color: #365262;
   border-radius: 3.25px;
   color: white;
-  font-weight: bold;
   padding: 10px;
   font-size: 20px;
 }
@@ -61,6 +60,18 @@
 .columnTwo {
   text-align: center;
   font-weight: bold;
+}
+
+.carousel button {
+  background-color: transparent !important;
+}
+
+.carousel button:hover {
+  background-color: transparent !important;
+}
+
+.carousel button:active {
+  background-color: transparent !important;
 }
 
 /* Responsive styles for desktop (min-width: 1024px) */
