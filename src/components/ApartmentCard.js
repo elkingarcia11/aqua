@@ -68,8 +68,11 @@ export default function ApartmentCard({
       <Carousel
         width={width}
         showThumbs={false}
+        infiniteLoop={true}
         showIndicators={false}
         className={`${styles.carousel}`}
+        selectedItem={images.length + 1} // Select the last item initially
+        transitionTime={0} // Set transition time to 0 to prevent initial transition
       >
         {images.map((image, index) => (
           <div key={index} className="swiperSlideImg">
