@@ -1,84 +1,80 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { FaBed, FaBath } from "react-icons/fa";
-
 import { IoPeopleOutline } from "react-icons/io5";
+import PropTypes from "prop-types";
+import Image from "next/image"
 import styles from "@/styles/ApartmentCard.module.css";
+import Spinner from "./Spinner";
 
-import ImageComponent from "./ImageComponent";
-
-/**
- * ApartmentCard component displays information about an apartment,
- * including images, details, and a reservation link.
- *
- * @param {number} aptId - The ID of the apartment.
- * @param {number} sleeps - Number of people the apartment sleeps.
- * @param {number} beds - Number of bedrooms in the apartment.
- * @param {number} baths - Number of bathrooms in the apartment.
- * @param {string} link - The reservation link for the apartment.
- * @returns {JSX.Element} - Rendered ApartmentCard component.
- */
 export default function ApartmentCard({
   aptId,
   sleeps,
   beds,
   baths,
   link,
-  imageUrl,
   height,
   width,
 }) {
   const { t } = useTranslation();
-  const [images, setImages] = useState([]);
+  const [fileUrls, setFileUrls] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    function importAll(r) {
-      /*
-        Goes through each module request string in the context directory, 
-        imports the corresponding modules, and returns an array of imported module objects
-      */
-      return r.keys().map(r);
-    }
+    const fetchImageUrls = async () => {
+      const bucketName = "aqua-386121-image-bucket";
+      const folderName = `aqua${aptId}`;
+      const url = `https://www.googleapis.com/storage/v1/b/${bucketName}/o?prefix=${folderName}/`;
 
-    var imgs = [];
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`Network response was not ok: ${response.statusText}`);
+        }
 
-    // Select import path based on aptId
-    if (aptId === 1) {
-      imgs = importAll(require.context(`src/assets/aqua1/`, false));
-    } else if (aptId === 2) {
-      imgs = importAll(require.context("../assets/aqua2/", false));
-    } else if (aptId === 3) {
-      imgs = importAll(require.context("../assets/aqua3/", false));
-    } else if (aptId === 4) {
-      imgs = importAll(require.context("../assets/aqua4/", false));
-    } else if (aptId === 5) {
-      imgs = importAll(require.context("../assets/aqua5/", false));
-    } else if (aptId === 6) {
-      imgs = importAll(require.context("../assets/aqua6/", false));
-    }
+        const data = await response.json();
+        const fileNames = data.items.map((item) => item.name);
+        const urls = fileNames.map(
+          (name) => `https://storage.googleapis.com/${bucketName}/${name}`
+        );
+        setFileUrls(urls);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    // Map image URLs to their default URLs and update the state directly
-    setImages(imgs.map((imageUrl) => imageUrl.default));
+    fetchImageUrls();
   }, [aptId]);
 
+  const memoizedFileUrls = useMemo(() => fileUrls, [fileUrls]);
+
+  if (loading) {
+    return <Spinner/>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
-    <div className={`${styles.swiperContainer}`}>
+    <div className={styles.swiperContainer}>
       <Carousel
         width={width}
         showThumbs={false}
-        infiniteLoop={true}
         showIndicators={false}
-        className={`${styles.carousel}`}
-        selectedItem={images.length + 1} // Select the last item initially
-        transitionTime={0} // Set transition time to 0 to prevent initial transition
+        className={styles.carousel}
+        transitionTime={0}
       >
-        {images.map((image, index) => (
+        {memoizedFileUrls.map((url, index) => (
           <div key={index} className="swiperSlideImg">
-            <ImageComponent
-              src={image.src}
-              alt={image.src}
+            <Image
+              src={url}
+              alt={`File ${index}`}
               width={width}
               height={height}
               loading={index === 0 ? "eager" : "lazy"}
@@ -87,37 +83,34 @@ export default function ApartmentCard({
         ))}
       </Carousel>
 
-      {/* Apartment description and details */}
-      <div className={`${styles.descriptionContainer}`}>
-        <div className={`${styles.details}`}>
+      <div className={styles.descriptionContainer}>
+        <div className={styles.details}>
           <div>
-            <div className={`${styles.apt}`}>AQUA {aptId}</div>
-            <div className={`${styles.aptSub}`}>El Pueblito, Puerto Plata</div>
+            <div className={styles.apt}>AQUA {aptId}</div>
+            <div className={styles.aptSub}>El Pueblito, Puerto Plata</div>
           </div>
 
-          {/* Sleeps, Beds, and Baths icons and values */}
-          <div className={`${styles.detailsOne}`}>
+          <div className={styles.detailsOne}>
             <div>
-              <div className={`${styles.iconAndDetails}`}>
-                <IoPeopleOutline /> <span>{t("sleeps")}:</span>
+              <div className={styles.iconAndDetails}>
+                <IoPeopleOutline aria-label="Sleeps icon" /> <span>{t("sleeps")}:</span>
               </div>
-              <div className={`${styles.iconAndDetails}`}>
-                <FaBed /> <span>{t("bedrooms")}:</span>
+              <div className={styles.iconAndDetails}>
+                <FaBed aria-label="Bedrooms icon" /> <span>{t("bedrooms")}:</span>
               </div>
-              <div className={`${styles.iconAndDetails}`}>
-                <FaBath /> <span>{t("bathrooms")}:</span>
+              <div className={styles.iconAndDetails}>
+                <FaBath aria-label="Bathrooms icon" /> <span>{t("bathrooms")}:</span>
               </div>
             </div>
-            <div className={`${styles.columnTwo}`}>
+            <div className={styles.columnTwo}>
               <div>{sleeps}</div>
               <div>{beds}</div>
               <div>{baths}</div>
             </div>
           </div>
         </div>
-        {/* Reservation link */}
-        <div className={`${styles.reserve}`}>
-          <a href={link} className={`${styles.reserveButton}`}>
+        <div className={styles.reserve}>
+          <a href={link} className={styles.reserveButton}>
             {t("reserve")}
           </a>
         </div>
@@ -125,3 +118,13 @@ export default function ApartmentCard({
     </div>
   );
 }
+
+ApartmentCard.propTypes = {
+  aptId: PropTypes.string.isRequired,
+  sleeps: PropTypes.number.isRequired,
+  beds: PropTypes.number.isRequired,
+  baths: PropTypes.number.isRequired,
+  link: PropTypes.string.isRequired,
+  height: PropTypes.string.isRequired,
+  width: PropTypes.string.isRequired,
+};
