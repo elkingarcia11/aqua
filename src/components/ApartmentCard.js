@@ -5,7 +5,7 @@ import { Carousel } from "react-responsive-carousel";
 import { FaBed, FaBath } from "react-icons/fa";
 import { IoPeopleOutline } from "react-icons/io5";
 import PropTypes from "prop-types";
-import Image from "next/image"
+import Image from "next/image";
 import styles from "@/styles/ApartmentCard.module.css";
 import Spinner from "./Spinner";
 
@@ -19,30 +19,32 @@ export default function ApartmentCard({
   width,
 }) {
   const { t } = useTranslation();
-  const [fileUrls, setFileUrls] = useState([]);
+  const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
+    const importAll = (r) => {
+      return r.keys().map(r);
+    };
     const fetchImageUrls = async () => {
-      const bucketName = "aqua-386121-image-bucket";
-      const folderName = `aqua${aptId}`;
-      const url = `https://www.googleapis.com/storage/v1/b/${bucketName}/o?prefix=${folderName}/`;
+      var imgs = [];
+      // Select import path based on aptId
 
       try {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error(`Network response was not ok: ${response.statusText}`);
+        if (aptId === 1) {
+          imgs = importAll(require.context(`src/assets/aqua1/`, false));
+        } else if (aptId === 2) {
+          imgs = importAll(require.context("../assets/aqua2/", false));
+        } else if (aptId === 3) {
+          imgs = importAll(require.context("../assets/aqua3/", false));
+        } else if (aptId === 4) {
+          imgs = importAll(require.context("../assets/aqua4/", false));
+        } else if (aptId === 5) {
+          imgs = importAll(require.context("../assets/aqua5/", false));
+        } else if (aptId === 6) {
+          imgs = importAll(require.context("../assets/aqua6/", false));
         }
-
-        const data = await response.json();
-        const fileNames = data.items.map((item) => item.name);
-        const urls = fileNames.map(
-          (name) => `https://storage.googleapis.com/${bucketName}/${name}`
-        );
-        setFileUrls(urls);
-      } catch (error) {
-        setError(error.message);
+        setImages(imgs.map((imageUrl) => imageUrl.default));
       } finally {
         setLoading(false);
       }
@@ -51,14 +53,10 @@ export default function ApartmentCard({
     fetchImageUrls();
   }, [aptId]);
 
-  const memoizedFileUrls = useMemo(() => fileUrls, [fileUrls]);
+  const memoizedImageUrls = useMemo(() => images, [images]);
 
   if (loading) {
-    return <Spinner/>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
+    return <Spinner />;
   }
 
   return (
@@ -70,11 +68,11 @@ export default function ApartmentCard({
         className={styles.carousel}
         transitionTime={0}
       >
-        {memoizedFileUrls.map((url, index) => (
+        {memoizedImageUrls.map((url, index) => (
           <div key={index} className="swiperSlideImg">
             <Image
               src={url}
-              alt={`File ${index}`}
+              alt={`Image ${index}`}
               width={width}
               height={height}
               loading={index === 0 ? "eager" : "lazy"}
@@ -93,13 +91,16 @@ export default function ApartmentCard({
           <div className={styles.detailsOne}>
             <div>
               <div className={styles.iconAndDetails}>
-                <IoPeopleOutline aria-label="Sleeps icon" /> <span>{t("sleeps")}:</span>
+                <IoPeopleOutline aria-label="Sleeps icon" />{" "}
+                <span>{t("sleeps")}:</span>
               </div>
               <div className={styles.iconAndDetails}>
-                <FaBed aria-label="Bedrooms icon" /> <span>{t("bedrooms")}:</span>
+                <FaBed aria-label="Bedrooms icon" />{" "}
+                <span>{t("bedrooms")}:</span>
               </div>
               <div className={styles.iconAndDetails}>
-                <FaBath aria-label="Bathrooms icon" /> <span>{t("bathrooms")}:</span>
+                <FaBath aria-label="Bathrooms icon" />{" "}
+                <span>{t("bathrooms")}:</span>
               </div>
             </div>
             <div className={styles.columnTwo}>
@@ -120,11 +121,11 @@ export default function ApartmentCard({
 }
 
 ApartmentCard.propTypes = {
-  aptId: PropTypes.string.isRequired,
+  aptId: PropTypes.number.isRequired,
   sleeps: PropTypes.number.isRequired,
   beds: PropTypes.number.isRequired,
   baths: PropTypes.number.isRequired,
   link: PropTypes.string.isRequired,
-  height: PropTypes.string.isRequired,
-  width: PropTypes.string.isRequired,
+  height: PropTypes.number.isRequired,
+  width: PropTypes.number.isRequired,
 };

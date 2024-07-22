@@ -91,11 +91,7 @@ export default function Home() {
       const calculatedHeight = calculatedWidth / aspectRatio;
       setHeight(calculatedHeight);
     };
-
-    const handleImageLoad = () => {
-      // Do something when the image loads, if needed
-    };
-
+    
     const cleanup = () => {
       // Check if the component is still mounted before removing the event listener
       if (isMounted) {
@@ -175,7 +171,6 @@ export default function Home() {
                 beds={apartment.beds}
                 baths={apartment.baths}
                 link={apartment.link}
-                imageUrl={apartment.imageUrl}
                 height={height}
                 width={width}
               />
