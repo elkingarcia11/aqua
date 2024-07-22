@@ -23,28 +23,53 @@ export default function ApartmentCard({
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const importAll = (r) => {
-      return r.keys().map(r);
-    };
-    const fetchImageUrls = async () => {
-      var imgs = [];
-      // Select import path based on aptId
+    const importAll = (r) => r.keys().map(r);
 
+    const fetchImageUrls = async () => {
+      let imgs = [];
       try {
-        if (aptId === 1) {
-          imgs = importAll(require.context(`src/assets/aqua1/`, false));
-        } else if (aptId === 2) {
-          imgs = importAll(require.context("../assets/aqua2/", false));
-        } else if (aptId === 3) {
-          imgs = importAll(require.context("../assets/aqua3/", false));
-        } else if (aptId === 4) {
-          imgs = importAll(require.context("../assets/aqua4/", false));
-        } else if (aptId === 5) {
-          imgs = importAll(require.context("../assets/aqua5/", false));
-        } else if (aptId === 6) {
-          imgs = importAll(require.context("../assets/aqua6/", false));
+        switch (aptId) {
+          case 1:
+            imgs = importAll(require.context(`../assets/aqua1/`, false, /\.(png|jpe?g|svg|webp)$/));
+            break;
+          case 2:
+            imgs = importAll(require.context(`../assets/aqua2/`, false, /\.(png|jpe?g|svg|webp)$/));
+            break;
+          case 3:
+            imgs = importAll(require.context(`../assets/aqua3/`, false, /\.(png|jpe?g|svg|webp)$/));
+            break;
+          case 4:
+            imgs = importAll(require.context(`../assets/aqua4/`, false, /\.(png|jpe?g|svg|webp)$/));
+            break;
+          case 5:
+            imgs = importAll(require.context(`../assets/aqua5/`, false, /\.(png|jpe?g|svg|webp)$/));
+            break;
+          case 6:
+            imgs = importAll(require.context(`../assets/aqua6/`, false, /\.(png|jpe?g|svg|webp)$/));
+            break;
+          default:
+            console.error(`Unknown aptId: ${aptId}`);
+            break;
         }
-        setImages(imgs.map((imageUrl) => imageUrl.default));
+
+        console.log("Imported Images:", imgs); // Log imported images
+
+        // Preload all images
+        const loadedImages = await Promise.all(
+          imgs.map(
+            (imageModule) =>
+              new Promise((resolve, reject) => {
+                const img = new window.Image();
+                img.src = imageModule.default.src; // Access src property within default
+                img.onload = () => resolve(imageModule.default.src);
+                img.onerror = () => reject(new Error(`Failed to load image: ${imageModule.default.src}`));
+              })
+          )
+        );
+
+        setImages(loadedImages);
+      } catch (error) {
+        console.error("Failed to load images", error);
       } finally {
         setLoading(false);
       }
@@ -69,13 +94,13 @@ export default function ApartmentCard({
         transitionTime={0}
       >
         {memoizedImageUrls.map((url, index) => (
-          <div key={index} className="swiperSlideImg">
+          <div key={index} className={styles.swiperSlideImg}>
             <Image
               src={url}
               alt={`Image ${index}`}
               width={width}
               height={height}
-              loading={index === 0 ? "eager" : "lazy"}
+              priority={index === 0} // Use priority for the first image
             />
           </div>
         ))}
