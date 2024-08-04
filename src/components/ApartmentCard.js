@@ -52,15 +52,13 @@ export default function ApartmentCard({
             break;
         }
 
-        console.log("Imported Images:", imgs); // Log imported images
-
         // Preload all images
         const loadedImages = await Promise.all(
           imgs.map(
             (imageModule) =>
               new Promise((resolve, reject) => {
                 const img = new window.Image();
-                img.src = imageModule.default.src; // Access src property within default
+                img.src = imageModule.default.src;
                 img.onload = () => resolve(imageModule.default.src);
                 img.onerror = () => reject(new Error(`Failed to load image: ${imageModule.default.src}`));
               })
@@ -68,10 +66,11 @@ export default function ApartmentCard({
         );
 
         setImages(loadedImages);
+        setTimeout(() => {
+          setLoading(false);
+        }, 3000); // Adjust the timeout duration as needed
       } catch (error) {
         console.error("Failed to load images", error);
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -79,10 +78,6 @@ export default function ApartmentCard({
   }, [aptId]);
 
   const memoizedImageUrls = useMemo(() => images, [images]);
-
-  if (loading) {
-    return <Spinner />;
-  }
 
   return (
     <div className={styles.swiperContainer}>
@@ -95,13 +90,18 @@ export default function ApartmentCard({
       >
         {memoizedImageUrls.map((url, index) => (
           <div key={index} className={styles.swiperSlideImg}>
+            {loading ? <Spinner 
+              width={width}
+              height={height}
+              /> : 
             <Image
               src={url}
               alt={`Image ${index}`}
               width={width}
               height={height}
-              priority={index === 0} // Use priority for the first image
-            />
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mOcUg8AAa0BFSX8uBwAAAAASUVORK5CYII="
+              placeholder="blur"
+            />}
           </div>
         ))}
       </Carousel>
