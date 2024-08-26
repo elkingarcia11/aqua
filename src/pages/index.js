@@ -22,7 +22,7 @@ const apartments = [
     sleeps: 4,
     beds: 2,
     baths: 2,
-    link: "https://abnb.me/DqS6YriYJrb",
+    link: "https://www.airbnb.com/rooms/614372473896092731?guests=2&adults=2&s=67&unique_share_id=c88a11a6-acaa-45e9-bdbe-57018de8e8e5",
   },
   {
     id: 2,
@@ -30,7 +30,7 @@ const apartments = [
     sleeps: 2,
     beds: 1,
     baths: 1,
-    link: "https://abnb.me/g4odQfhYJrb",
+    link: "https://www.airbnb.com/rooms/614388890268120421?guests=2&adults=2&s=67&unique_share_id=879aed86-3f6e-466d-9d69-1cfa72b323ee",
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ const apartments = [
     sleeps: 4,
     beds: 2,
     baths: 1,
-    link: "https://abnb.me/ekkqMigYJrb",
+    link: "https://www.airbnb.com/rooms/615279204201976863?guests=2&adults=2&s=67&unique_share_id=f6f57145-e259-4bbb-badd-df59e976d723",
   },
   {
     id: 4,
@@ -46,7 +46,7 @@ const apartments = [
     sleeps: 2,
     beds: 1,
     baths: 1,
-    link: "https://abnb.me/WOKS9dfYJrb",
+    link: "https://www.airbnb.com/rooms/54207575?guests=2&adults=2&s=67&unique_share_id=b1f40417-9dea-4f66-8db9-e43d86944f15",
   },
   {
     id: 5,
@@ -54,7 +54,7 @@ const apartments = [
     sleeps: 4,
     beds: 2,
     baths: 1,
-    link: "https://abnb.me/RHivkudYJrb",
+    link: "https://www.airbnb.com/rooms/614357465355883390?guests=2&adults=2&s=67&unique_share_id=c35a72d1-ac05-480d-99fd-864e43e933bf",
   },
   {
     id: 6,
@@ -62,7 +62,7 @@ const apartments = [
     sleeps: 2,
     beds: 1,
     baths: 1,
-    link: "https://abnb.me/DFrJkt4XJrb",
+    link: "https://www.airbnb.com/rooms/670959074975116873?guests=2&adults=2&s=67&unique_share_id=3c32847b-1e1d-446a-a30e-99bc31a6272a",
   },
 ];
 
