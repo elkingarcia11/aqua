@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { FaMap, FaSearch } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import styles from "@/styles/NavBar.module.css";
@@ -24,56 +24,69 @@ export default function NavBar({ filterApartments }) {
 
   var scroller = Scroll.scroller;
 
-  function scrollToMap() {
+  const scrollToMap = useCallback(() => {
     scroller.scrollTo("map", {
       duration: 250,
       delay: 0,
       smooth: true,
-      offset: -50, // Scrolls to element + 50 pixels down the page
+      offset: -50,
     });
-  }
+  }, []);
 
-  const reset = () => {
+  const reset = useCallback(() => {
     setIsInputCheckbox(false);
     setIsSleeps(0);
     setIsBathrooms(0);
     setIsBedrooms(0);
     setIsFilterModalOpen(false);
     filterApartments(false, 0, 0, 0);
-  };
+  }, [filterApartments]);
 
-  const subtract = (i) => {
-    if (i === 1 && isSleeps > 0) {
-      setIsSleeps(isSleeps - 1);
-    } else if (i === 2 && isBedrooms > 0) {
-      setIsBedrooms(isBedrooms - 1);
-    } else if (i === 3 && isBathrooms > 0) {
-      setIsBathrooms(isBathrooms - 1);
-    }
-  };
+  const subtract = useCallback(
+    (i) => {
+      if (i === 1 && isSleeps > 0) {
+        setIsSleeps(isSleeps - 1);
+      } else if (i === 2 && isBedrooms > 0) {
+        setIsBedrooms(isBedrooms - 1);
+      } else if (i === 3 && isBathrooms > 0) {
+        setIsBathrooms(isBathrooms - 1);
+      }
+    },
+    [isSleeps, isBedrooms, isBathrooms]
+  );
 
-  const add = (i) => {
-    if (i === 1 && isSleeps < 4) {
-      setIsSleeps(isSleeps + 1);
-    } else if (i === 2 && isBedrooms < 2) {
-      setIsBedrooms(isBedrooms + 1);
-    } else if (i === 3 && isBathrooms < 2) {
-      setIsBathrooms(isBathrooms + 1);
-    }
-  };
+  const add = useCallback(
+    (i) => {
+      if (i === 1 && isSleeps < 4) {
+        setIsSleeps(isSleeps + 1);
+      } else if (i === 2 && isBedrooms < 2) {
+        setIsBedrooms(isBedrooms + 1);
+      } else if (i === 3 && isBathrooms < 2) {
+        setIsBathrooms(isBathrooms + 1);
+      }
+    },
+    [isSleeps, isBedrooms, isBathrooms]
+  );
 
-  const toggleModal = () => {
+  const toggleModal = useCallback(() => {
     setIsFilterModalOpen(!isFilterModalOpen);
-  };
+  }, [isFilterModalOpen]);
 
-  const toggleCheckbox = () => {
+  const toggleCheckbox = useCallback(() => {
     setIsInputCheckbox(!isInputCheckbox);
-  };
+  }, [isInputCheckbox]);
 
-  const submitForm = () => {
+  const submitForm = useCallback(() => {
     toggleModal();
     filterApartments(isInputCheckbox, isSleeps, isBedrooms, isBathrooms);
-  };
+  }, [
+    toggleModal,
+    filterApartments,
+    isInputCheckbox,
+    isSleeps,
+    isBedrooms,
+    isBathrooms,
+  ]);
 
   return (
     <div>

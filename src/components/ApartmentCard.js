@@ -30,22 +30,58 @@ export default function ApartmentCard({
       try {
         switch (aptId) {
           case 1:
-            imgs = importAll(require.context(`../assets/aqua1/`, false, /\.(png|jpe?g|svg|webp)$/));
+            imgs = importAll(
+              require.context(
+                `../assets/aqua1/`,
+                false,
+                /\.(png|jpe?g|svg|webp)$/
+              )
+            );
             break;
           case 2:
-            imgs = importAll(require.context(`../assets/aqua2/`, false, /\.(png|jpe?g|svg|webp)$/));
+            imgs = importAll(
+              require.context(
+                `../assets/aqua2/`,
+                false,
+                /\.(png|jpe?g|svg|webp)$/
+              )
+            );
             break;
           case 3:
-            imgs = importAll(require.context(`../assets/aqua3/`, false, /\.(png|jpe?g|svg|webp)$/));
+            imgs = importAll(
+              require.context(
+                `../assets/aqua3/`,
+                false,
+                /\.(png|jpe?g|svg|webp)$/
+              )
+            );
             break;
           case 4:
-            imgs = importAll(require.context(`../assets/aqua4/`, false, /\.(png|jpe?g|svg|webp)$/));
+            imgs = importAll(
+              require.context(
+                `../assets/aqua4/`,
+                false,
+                /\.(png|jpe?g|svg|webp)$/
+              )
+            );
             break;
           case 5:
-            imgs = importAll(require.context(`../assets/aqua5/`, false, /\.(png|jpe?g|svg|webp)$/));
+            imgs = importAll(
+              require.context(
+                `../assets/aqua5/`,
+                false,
+                /\.(png|jpe?g|svg|webp)$/
+              )
+            );
             break;
           case 6:
-            imgs = importAll(require.context(`../assets/aqua6/`, false, /\.(png|jpe?g|svg|webp)$/));
+            imgs = importAll(
+              require.context(
+                `../assets/aqua6/`,
+                false,
+                /\.(png|jpe?g|svg|webp)$/
+              )
+            );
             break;
           default:
             console.error(`Unknown aptId: ${aptId}`);
@@ -60,7 +96,12 @@ export default function ApartmentCard({
                 const img = new window.Image();
                 img.src = imageModule.default.src;
                 img.onload = () => resolve(imageModule.default.src);
-                img.onerror = () => reject(new Error(`Failed to load image: ${imageModule.default.src}`));
+                img.onerror = () =>
+                  reject(
+                    new Error(
+                      `Failed to load image: ${imageModule.default.src}`
+                    )
+                  );
               })
           )
         );
@@ -90,18 +131,18 @@ export default function ApartmentCard({
       >
         {memoizedImageUrls.map((url, index) => (
           <div key={index} className={styles.swiperSlideImg}>
-            {loading ? <Spinner 
-              width={width}
-              height={height}
-              /> : 
-            <Image
-              src={url}
-              alt={`Image ${index}`}
-              width={width}
-              height={height}
-              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mOcUg8AAa0BFSX8uBwAAAAASUVORK5CYII="
-              placeholder="blur"
-            />}
+            {loading ? (
+              <Spinner width={width} height={height} />
+            ) : (
+              <Image
+                src={url}
+                alt={`Image ${index}`}
+                width={width}
+                height={height}
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mOcUg8AAa0BFSX8uBwAAAAASUVORK5CYII="
+                placeholder="blur"
+              />
+            )}
           </div>
         ))}
       </Carousel>

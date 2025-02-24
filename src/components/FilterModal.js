@@ -1,6 +1,7 @@
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import styles from "@/styles/NavBar.module.css";
+import { useCallback } from "react";
 
 /**
  * FilterModal Component
@@ -35,10 +36,11 @@ export default function FilterModal({
   toggleCheckbox,
   reset,
 }) {
-  const submit = () => {
+  const submit = useCallback(() => {
     toggleModal();
     submitForm();
-  };
+  }, [toggleModal, submitForm]);
+
   const { t } = useTranslation();
   if (isFilterModalOpen) {
     return (
