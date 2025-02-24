@@ -58,6 +58,9 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
+# Ensure assets are copied to the production image
+COPY --from=builder /app/src/assets ./src/assets
+
 # Switch to the nextjs user
 USER nextjs
 
