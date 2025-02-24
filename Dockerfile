@@ -23,6 +23,10 @@ RUN \
 # Stage 2: Building the source code
 FROM base AS builder
 WORKDIR /app
+
+# Copy the assets folder first to ensure changes are detected
+COPY ./src/assets ./src/assets
+
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
